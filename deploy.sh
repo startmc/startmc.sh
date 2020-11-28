@@ -6,8 +6,6 @@ npm run build #build
 
 cd dist #enter build dir
 
-echo "startmc.sh" > CNAME #echo domain to CNAME
-
 git init #initialize new repo
 
 git add -A
