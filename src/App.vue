@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Layout>
+      <template v-slot:header>
+        <h1>startmc.sh</h1>
+      </template>
+      <template v-slot:content>
+        <p>click to gernate start.sh xXDDD</p>
+      </template>
+      <template v-slot:footer>
+        <h1>made by aber and blue POG SO HRA POG POGPO G</h1>
+      </template>
+    </Layout>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import Layout from "@/components/Layout";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Layout
   }
 }
 </script>
