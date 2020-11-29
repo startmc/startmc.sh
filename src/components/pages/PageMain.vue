@@ -1,6 +1,5 @@
 <template>
   <div class="container pt-5">
-    <!-- Inputs -->
     <div class="column">
       <div class="box">
         <h1 class="subtitle">📝 Enter your server's details</h1>
@@ -30,6 +29,7 @@
                   data-tooltip="Would you like to enable the built-in server GUI? (The answer is usually no.)"></information-icon>
             </label>
             <div class="control">
+              <!-- TODO: Nicer checkbox class -->
               <input class="checkbox" type="checkbox" id="gui">
             </div>
           </div>
@@ -38,6 +38,7 @@
     </div>
     <div class="column">
       <div class="box">
+        <!-- TODO: Click to copy to clipboard -->
         <h1 class="subtitle">💾 Copy your start script</h1>
         <pre class="p-0 m-0 script" id="script">Waiting for Input</pre>
         <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a
@@ -49,6 +50,7 @@
         <h1 class="subtitle">🖥️ Start your server!</h1>
       </div>
     </div>
+    <br>
     <div class="flag-popup hide" id="popup">
       <article class="message">
         <div class="message-header"></div>
