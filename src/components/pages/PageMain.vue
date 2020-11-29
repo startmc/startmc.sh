@@ -72,7 +72,7 @@ export default {
 
 let flags = {
   "-XX:+UseG1GC": "This enables the Java G1 garbage collector.",
-  "-XX:+ParallelRefProcEnabled": "",
+  "-XX:+ParallelRefProcEnabled": "N/A",
   "-XX:MaxGCPauseMillis=200": "This tells the JVM to aim for a max garbage collection time of 200 milliseconds. This is useful, because long pauses for garbage collection will interfere with your server's performance.",
   "-XX:+UnlockExperimentalVMOptions": "This enables experimental JVM flags. Don't worry, these flags have been created by one of the smartest members of our community, and tested by thousands of servers.",
   "-XX:+DisableExplicitGC": "This disables the System.gc() method call. Plugins may think they are doing something good by explicitly calling the GC, but in this case it is best to leave it up to the JVM.",
