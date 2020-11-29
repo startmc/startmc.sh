@@ -6,19 +6,19 @@
         <h1 class="subtitle">📝 Enter your server's details</h1>
         <div class="columns">
           <div class="field column">
-            <label class="label" for="jarFileName">Server jar filename</label>
+            <label class="label" for="jarFileName">Your server's jarfile name</label>
             <div class="control">
               <input class="input" type="text" placeholder="server.jar, paper-247.jar, etc..." id="jarFileName">
             </div>
           </div>
           <div class="field column">
-            <label class="label" for="ram">Min RAM allocation</label>
+            <label class="label" for="ram">RAM allocation</label>
             <div class="control">
               <input class="input" type="text" placeholder="10G" id="ram">
             </div>
           </div>
           <div class="field column">
-            <label class="label" for="gui">Use GUI?</label>
+            <label class="label" for="gui">Enable the Server GUI?</label>
             <div class="control">
               <input class="checkbox" type="checkbox" id="gui">
             </div>
