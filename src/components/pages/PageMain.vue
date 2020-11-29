@@ -6,21 +6,29 @@
         <h1 class="subtitle">📝 Enter your server's details</h1>
         <div class="columns">
           <div class="field column">
-            <label class="label" for="jarFileName">Your server's jarfile name <information-icon data-tooltip="The file you start your server with."></information-icon></label>
+            <label class="label" for="jarFileName">Your server's jarfile name
+              <information-icon data-tooltip="The file you start your server with."></information-icon>
+            </label>
             <div class="control">
               <input class="input" type="text" placeholder="server.jar, paper-247.jar, etc..." id="jarFileName">
             </div>
             <p class="help is-danger is-hidden" id="jarfile-help">You might be missing .jar</p>
           </div>
           <div class="field column">
-            <label class="label" for="ram">RAM allocation <information-icon data-tooltip="How much RAM you intend to allocate to your server."></information-icon></label>
+            <label class="label" for="ram">RAM allocation
+              <information-icon data-tooltip="How much RAM you intend to allocate to your server."></information-icon>
+            </label>
             <div class="control">
               <input class="input" type="text" placeholder="10G" id="ram">
             </div>
-            <p class="help is-danger is-hidden" id="ram-help">You might be missing the memory size. M = megabytes, G = gigabytes</p>
+            <p class="help is-danger is-hidden" id="ram-help">You might be missing the memory size. M = megabytes, G =
+              gigabytes</p>
           </div>
           <div class="field column">
-            <label class="label" for="gui">Enable the Server GUI? <information-icon data-tooltip="Would you like to enable the built-in server GUI? (The answer is usually no.)"></information-icon></label>
+            <label class="label" for="gui">Enable the Server GUI?
+              <information-icon
+                  data-tooltip="Would you like to enable the built-in server GUI? (The answer is usually no.)"></information-icon>
+            </label>
             <div class="control">
               <input class="checkbox" type="checkbox" id="gui">
             </div>
@@ -31,8 +39,9 @@
     <div class="column">
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
-          <pre class="p-0 m-0 script" id="script">Waiting for Input</pre>
-        <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a flag to learn more about it's purpose!</p>
+        <pre class="p-0 m-0 script" id="script">Waiting for Input</pre>
+        <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a
+          flag to learn more about it's purpose!</p>
       </div>
     </div>
     <div class="column">
@@ -62,22 +71,22 @@ export default {
 let flags = {
   "-XX:+UseG1GC": "This enables the Java G1 garbage collector.",
   "-XX:+ParallelRefProcEnabled": "",
-  "-XX:MaxGCPauseMillis=200": "",
-  "-XX:+UnlockExperimentalVMOptions": "",
-  "-XX:+DisableExplicitGC": "",
-  "-XX:+AlwaysPreTouch": "",
-  "-XX:G1NewSizePercent=30": "",
-  "-XX:G1MaxNewSizePercent=40": "",
-  "-XX:G1HeapRegionSize=8M": "",
-  "-XX:G1ReservePercent=20": "",
-  "-XX:G1HeapWastePercent=5": "",
-  "-XX:G1MixedGCCountTarget=4": "",
-  "-XX:InitiatingHeapOccupancyPercent=15": "",
-  "-XX:G1MixedGCLiveThresholdPercent=90": "",
-  "-XX:G1RSetUpdatingPauseTimePercent=5": "",
-  "-XX:SurvivorRatio=32": "",
-  "-XX:+PerfDisableSharedMem": "",
-  "-XX:MaxTenuringThreshold=1": "",
+  "-XX:MaxGCPauseMillis=200": "This tells the JVM to aim for a max garbage collection time of 200 milliseconds. This is useful, because long pauses for garbage collection will interfere with your server's performance.",
+  "-XX:+UnlockExperimentalVMOptions": "This enables experimental JVM flags. Don't worry, these flags have been created by one of the smartest members of our community, and tested by thousands of servers.",
+  "-XX:+DisableExplicitGC": "This disables the System.gc() method call. Plugins may think they are doing something good by explicitly calling the GC, but in this case it is best to leave it up to the JVM.",
+  "-XX:+AlwaysPreTouch": "This allocates all of the RAM for the server on startup. Incremental allocations during runtime may impact performance, so this prevents that.",
+  "-XX:G1NewSizePercent=30": "This gives the GC more room to breathe, and results in less GC cycles (and thus less lag.)",
+  "-XX:G1MaxNewSizePercent=40": "This gives the GC more room to breathe, and results in less GC cycles (and thus less lag.)",
+  "-XX:G1HeapRegionSize=8M": "This sends fewer objects to the old gen, which means there will be less time spent cleaning up old gen memory.",
+  "-XX:G1ReservePercent=20": "This ensures that there is more space for memory to move around.",
+  "-XX:G1HeapWastePercent=5": "N/A",
+  "-XX:G1MixedGCCountTarget=4": "This instructs the JVM to reclaim old gen ",
+  "-XX:InitiatingHeapOccupancyPercent=15": "N/A",
+  "-XX:G1MixedGCLiveThresholdPercent=90": "This sends fewer objects to the old gen, which means there will be less time spent cleaning up old gen memory.",
+  "-XX:G1RSetUpdatingPauseTimePercent=5": "Reduces GC pause durations.",
+  "-XX:SurvivorRatio=32": "Reduces the survivor space, as MaxTenuringTheshold was increased.",
+  "-XX:+PerfDisableSharedMem": "Prevents the GC from writing to the file system. File system IO may take a very long time, which is why we disable it.",
+  "-XX:MaxTenuringThreshold=1": "This delays the collection of longer lived memory, and therefore decreases pause times (and improves server performance).",
   "-Daikars.new.flags=true": "This tells the Paper timings system that you are using the updated version of Aikar's flags.",
   "-Dusing.aikars.flags=https://mcflags.emc.gs": "This tells the Paper timings system that you are using Aikar's flags.",
 }
@@ -102,8 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let description = flags[flag];
 
-      let popup = document.getElementById("popup")
-
       let headerElement = popup.children[0].children[0]
 
       let bodyElement = popup.children[0].children[1]
@@ -113,29 +120,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
       popup.classList.remove("hide")
 
-      let x = (e.clientX - 170);
-      let y = (e.clientY - 90);
+      let x = element.offsetLeft + (element.clientWidth / 2)
+      let y = element.offsetTop + 100
 
-      popup.style.top = y + "px"
-      popup.style.left = x + "px"
+      console.log(x, y)
+
+      popup.style.left = x + "px";
+      popup.style.top = y + "px";
     } else {
       popup.classList.add("hide")
     }
+
+    console.log(element.id, popup.id)
   });
 
   const status = document.getElementById("script");
   let dotCount = 0;
-  window.setInterval(function() {
+  window.setInterval(function () {
     if (!waitingForCode) return;
     if (dotCount < 3) {
-        ++dotCount;
-        if (!status.innerHTML.startsWith('Waiting for Input')) {
-          status.innerHTML = "Waiting for Input";
-        }
-        status.innerHTML += ".";
-    } else {
+      ++dotCount;
+      if (!status.innerHTML.startsWith('Waiting for Input')) {
         status.innerHTML = "Waiting for Input";
-        dotCount = 0;
+      }
+      status.innerHTML += ".";
+    } else {
+      status.innerHTML = "Waiting for Input";
+      dotCount = 0;
     }
   }, 450);
 });
@@ -177,7 +188,7 @@ function regenCode() {
   }
 
 
-  if (ram === '' && jarName === '') { 
+  if (ram === '' && jarName === '') {
     waitingForCode = true;
     return;
   }
