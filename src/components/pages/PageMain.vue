@@ -40,7 +40,7 @@
       <div class="box">
         <!-- TODO: Click to copy to clipboard -->
         <h1 class="subtitle">💾 Copy your start script</h1>
-        <pre class="p-0 m-0 script" id="script">Waiting for Input</pre>
+        <pre class="p-0 m-0 script" id="script">Waiting for input</pre>
         <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a
           flag to learn more about it's purpose!</p>
       </div>
@@ -142,12 +142,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!waitingForCode) return;
     if (dotCount < 3) {
       ++dotCount;
-      if (!status.innerHTML.startsWith('Waiting for Input')) {
-        status.innerHTML = "Waiting for Input";
+      if (!status.innerHTML.startsWith('Waiting for input')) {
+        status.innerHTML = "Waiting for input";
       }
       status.innerHTML += ".";
     } else {
-      status.innerHTML = "Waiting for Input";
+      status.innerHTML = "Waiting for input";
       dotCount = 0;
     }
   }, 500);
