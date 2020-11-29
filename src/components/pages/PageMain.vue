@@ -49,11 +49,10 @@
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    regenCode();  
-    document.getElementById('minRam').addEventListener("input", regenCode());
-    document.getElementById('maxRam').addEventListener("input", regenCode());
-    document.getElementById('jarFileName').addEventListener("input", regenCode());
-    document.getElementById('gui').addEventListener("change", regenCode());
+    document.getElementById('minRam').addEventListener("input", regenCode);
+    document.getElementById('maxRam').addEventListener("input", regenCode);
+    document.getElementById('jarFileName').addEventListener("input", regenCode);
+    document.getElementById('gui').addEventListener("change", regenCode);
   });
 
   function minRam() {
@@ -81,7 +80,7 @@
     return document.getElementById("gui").checked
   }
 
-  function regenCode() {
+  let regenCode = () => {
     console.log('regenning..... xddd hi blue')
     let code = `java -Xms${ minRam() } -Xmx${ maxRam() } -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar ${ getJarFileName() }`;
     if (getGui()) {
