@@ -129,6 +129,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!waitingForCode) return;
     if (dotCount < 3) {
         ++dotCount;
+        if (!status.innerHTML.startsWith('Waiting for Input')) {
+          status.innerHTML = "Waiting for Input";
+        }
         status.innerHTML += ".";
     } else {
         status.innerHTML = "Waiting for Input";
@@ -171,6 +174,12 @@ function regenCode() {
   } else {
     document.getElementById("jarFileName").classList.remove("is-warning")
     document.getElementById("jarfile-help").classList.add("is-hidden")
+  }
+
+
+  if (ram === '' && jarName === '') { 
+    waitingForCode = true;
+    return;
   }
 
   if (ram === '' || jarName === '') {
