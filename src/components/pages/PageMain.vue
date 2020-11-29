@@ -10,12 +10,14 @@
             <div class="control">
               <input class="input" type="text" placeholder="server.jar, paper-247.jar, etc..." id="jarFileName">
             </div>
+            <p class="help is-danger is-hidden" id="jarfile-help">You might be missing .jar</p>
           </div>
           <div class="field column">
             <label class="label" for="ram">RAM allocation <information-icon data-tooltip="How much RAM you intent to allocate to your server."></information-icon></label>
             <div class="control">
               <input class="input" type="text" placeholder="10G" id="ram">
             </div>
+            <p class="help is-danger is-hidden" id="ram-help">You might be missing the memory size. M = megabytes, G = gigabytes</p>
           </div>
           <div class="field column">
             <label class="label" for="gui">Enable the Server GUI? <information-icon data-tooltip="Would you like to enable the built-in server GUI? (The answer is usually no.)"></information-icon></label>
@@ -30,7 +32,7 @@
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
           <pre class="p-0 m-0 script" id="script">Waiting for input...</pre>
-        <p class="py-2 is-size-6">This might look scary, but don't worry. You can hover over a flag to learn more about
+        <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a flag to learn more about
           it's purpose!</p>
       </div>
     </div>
@@ -142,6 +144,25 @@ function regenCode() {
   let isGuiEnabled = getGui();
   let jarName = getJarFileName();
 
+  // check jar validity
+  if (ram !== '' && ram.match(/([MmGg])$/) == null) {
+    document.getElementById("ram").classList.add("is-warning")
+    document.getElementById("ram-help").classList.remove("is-hidden")
+  } else {
+    document.getElementById("ram").classList.remove("is-warning")
+    document.getElementById("ram-help").classList.add("is-hidden")
+  }
+
+  // check jar validity
+  if (jarName !== '' && jarName.match(/.jar$/) == null) {
+    document.getElementById("jarFileName").classList.add("is-warning")
+    document.getElementById("jarfile-help").classList.remove("is-hidden")
+
+  } else {
+    document.getElementById("jarFileName").classList.remove("is-warning")
+    document.getElementById("jarfile-help").classList.add("is-hidden")
+  }
+
   if (ram === '' || jarName === '') {
     return;
   }
@@ -163,7 +184,6 @@ function regenCode() {
 
   for (let flag in flags) {
     i++;
-    console.log(flag)
     let flagElement = document.createElement("span")
     flagElement.style.whiteSpace = 'nowrap'
     flagElement.id = flag
@@ -183,9 +203,7 @@ function regenCode() {
 
     scriptElement.append(spacer)
 
-    let newElement = document.getElementById(flag);
-
-    console.log(newElement)
+    document.getElementById("help-text").classList.remove("is-hidden")
   }
 
   // create suffix element
