@@ -156,7 +156,7 @@ function regenCode() {
     console.log(flag)
     let flagElement = document.createElement("spawn")
     flagElement.id = flag
-    flagElement.innerText = flag
+    flagElement.innerText = flag+" "
     flagElement.style.color = i % 2 === 0 ? "#343434 !important" : "#1a1a1a !important"
 
     scriptElement.append(flagElement)
