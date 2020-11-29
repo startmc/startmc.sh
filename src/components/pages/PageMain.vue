@@ -13,7 +13,7 @@
             <p class="help is-danger is-hidden" id="jarfile-help">You might be missing .jar</p>
           </div>
           <div class="field column">
-            <label class="label" for="ram">RAM allocation <information-icon data-tooltip="How much RAM you intent to allocate to your server."></information-icon></label>
+            <label class="label" for="ram">RAM allocation <information-icon data-tooltip="How much RAM you intend to allocate to your server."></information-icon></label>
             <div class="control">
               <input class="input" type="text" placeholder="10G" id="ram">
             </div>
