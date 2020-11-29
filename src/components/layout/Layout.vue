@@ -6,7 +6,7 @@
     <div class="layout-content">
       <slot name="content"></slot>
     </div>
-    <div class="layout-footer">
+    <div>
       <slot name="footer"></slot>
     </div>
   </div>
@@ -27,11 +27,5 @@
 
   .layout-content {
     flex: 1;
-  }
-
-  .layout-footer {
-    flex: 0;
-    padding: 0;
-    min-height: 16em;
   }
 </style>

@@ -32,8 +32,7 @@
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
           <pre class="p-0 m-0 script" id="script">Waiting for input...</pre>
-        <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a flag to learn more about
-          it's purpose!</p>
+        <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a flag to learn more about it's purpose!</p>
       </div>
     </div>
     <div class="column">
