@@ -29,9 +29,10 @@
     <div class="column">
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
-        <pre class="p-0 m-0">
-            <code class="p-0" id="script">Enter your server's details</code>
-          </pre>
+        <pre class="p-0 m-0 script-container">
+          <code class="p-0 m-0 script" id="script">Waiting for input...</code>
+        </pre>
+        <p class="py-2 is-size-6">This might look scary, but don't worry. You can click on a flag to learn more about it's purpose!</p>
       </div>
     </div>
     <div class="column">
@@ -83,5 +84,17 @@ function regenCode() {
 </script>
 
 <style scoped>
+.script-container {
+  background-color: #d7d7d7;
+}
 
+.script {
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.script-container {
+  word-wrap: break-word;
+}
 </style>
