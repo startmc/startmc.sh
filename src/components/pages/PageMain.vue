@@ -29,9 +29,7 @@
     <div class="column">
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
-        <pre class="p-0 m-0 script-container" id="script-container">
-          <code class="p-0 m-0 script" id="script">Waiting for input...</code>
-        </pre>
+          <pre class="p-0 m-0 script" id="script">Waiting for input...</pre>
         <p class="py-2 is-size-6">This might look scary, but don't worry. You can hover over a flag to learn more about
           it's purpose!</p>
       </div>
@@ -76,8 +74,8 @@ let flags = {
   "-XX:SurvivorRatio=32": "",
   "-XX:+PerfDisableSharedMem": "",
   "-XX:MaxTenuringThreshold=1": "",
-  "-Dusing.aikars.flags=https://mcflags.emc.gs": "This tells the Paper timings system that you are using aikar's flags.",
   "-Daikars.new.flags=true": "This tells the Paper timings sytem that you are using the updated version of aikar's flags.",
+  "-Dusing.aikars.flags=https://mcflags.emc.gs": "This tells the Paper timings system that you are using aikar's flags.",
 }
 
 let scriptElement;
@@ -143,15 +141,24 @@ function regenCode() {
     return;
   }
 
-  let prefix = `java -Xms${ram} -Xmx${ram}`
+  scriptElement.innerHTML = ""
 
+  // create prefix element
+  let prefix = `java -Xms${ram} -Xmx${ram} `
+
+  let prefixElement = document.createElement("span")
+
+  prefixElement.innerText = prefix
+
+  // create suffix element
   let suffix = ` -jar ${jarName} ${isGuiEnabled ? '' : ' nogui'}`
 
   let suffixElement = document.createElement("span")
 
-  suffixElement.innerHTML = suffix
+  suffixElement.innerText = suffix
 
-  scriptElement.innerHTML = prefix
+  // add prefix to elem
+  scriptElement.append(prefixElement)
 
   // eslint-disable-next-line no-unused-vars
   let i = 0;
@@ -162,7 +169,7 @@ function regenCode() {
     let flagElement = document.createElement("span")
     flagElement.style.whiteSpace = 'nowrap'
     flagElement.id = flag
-    flagElement.innerText = flag + " "
+    flagElement.innerText = flag
     flagElement.classList.add("flag")
 
     if (i % 2 === 0) {
@@ -172,6 +179,11 @@ function regenCode() {
     }
 
     scriptElement.append(flagElement)
+
+    let spacer = document.createElement("span")
+    spacer.innerText = ' '
+
+    scriptElement.append(spacer)
 
     let newElement = document.getElementById(flag);
 
@@ -183,9 +195,6 @@ function regenCode() {
 </script>
 
 <style scoped>
-.script-container {
-  background-color: #d7d7d7;
-}
 
 .flag-popup {
   width: 24em;
@@ -194,9 +203,12 @@ function regenCode() {
 }
 
 .script {
+  overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
-  white-space: pre-line;
+  white-space: normal;
+  padding: 1em !important;
+  line-height: 2.4em;
 }
 
 .message-header {
