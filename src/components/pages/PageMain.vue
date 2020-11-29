@@ -6,19 +6,19 @@
         <h1 class="subtitle">📝 Enter your server's details</h1>
         <div class="columns">
           <div class="field column">
-            <label class="label" for="jarFileName">Your server's jarfile name</label>
+            <label class="label" for="jarFileName">Your server's jarfile name <information-icon data-tooltip="The file you start your server with."></information-icon></label>
             <div class="control">
               <input class="input" type="text" placeholder="server.jar, paper-247.jar, etc..." id="jarFileName">
             </div>
           </div>
           <div class="field column">
-            <label class="label" for="ram">RAM allocation</label>
+            <label class="label" for="ram">RAM allocation <information-icon data-tooltip="How much RAM you intent to allocate to your server."></information-icon></label>
             <div class="control">
               <input class="input" type="text" placeholder="10G" id="ram">
             </div>
           </div>
           <div class="field column">
-            <label class="label" for="gui">Enable the Server GUI?</label>
+            <label class="label" for="gui">Enable the Server GUI? <information-icon data-tooltip="Would you like to enable the built-in server GUI? (The answer is usually no.)"></information-icon></label>
             <div class="control">
               <input class="checkbox" type="checkbox" id="gui">
             </div>
@@ -51,8 +51,13 @@
 </template>
 
 <script>
+import InformationIcon from 'vue-material-design-icons/Information'
+
 export default {
-  name: "PageMain"
+  name: "PageMain",
+  components: {
+    InformationIcon
+  }
 }
 
 let flags = {
@@ -74,8 +79,8 @@ let flags = {
   "-XX:SurvivorRatio=32": "",
   "-XX:+PerfDisableSharedMem": "",
   "-XX:MaxTenuringThreshold=1": "",
-  "-Daikars.new.flags=true": "This tells the Paper timings sytem that you are using the updated version of aikar's flags.",
-  "-Dusing.aikars.flags=https://mcflags.emc.gs": "This tells the Paper timings system that you are using aikar's flags.",
+  "-Daikars.new.flags=true": "This tells the Paper timings system that you are using the updated version of Aikar's flags.",
+  "-Dusing.aikars.flags=https://mcflags.emc.gs": "This tells the Paper timings system that you are using Aikar's flags.",
 }
 
 let scriptElement;
@@ -150,13 +155,6 @@ function regenCode() {
 
   prefixElement.innerText = prefix
 
-  // create suffix element
-  let suffix = ` -jar ${jarName} ${isGuiEnabled ? '' : ' nogui'}`
-
-  let suffixElement = document.createElement("span")
-
-  suffixElement.innerText = suffix
-
   // add prefix to elem
   scriptElement.append(prefixElement)
 
@@ -190,6 +188,14 @@ function regenCode() {
     console.log(newElement)
   }
 
+  // create suffix element
+  let suffix = ` -jar ${jarName} ${isGuiEnabled ? '' : ' nogui'}`
+
+  let suffixElement = document.createElement("span")
+
+  suffixElement.innerText = suffix
+
+  // append suffix to element
   scriptElement.append(suffixElement)
 }
 </script>
