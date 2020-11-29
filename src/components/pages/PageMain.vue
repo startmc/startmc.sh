@@ -6,25 +6,25 @@
           <h1 class="subtitle">Enter your server's details</h1>
           <div class="columns">
             <div class="field column">
-              <label class="label">Server jar filename</label>
+              <label class="label" for="jarFileName">Server jar filename</label>
               <div class="control">
                 <input class="input" type="text" placeholder="server.jar, paper-247.jar, etc..." id="jarFileName">
               </div>
             </div>
             <div class="field column">
-              <label class="label">Min RAM allocation</label>
+              <label class="label" for="minRam">Min RAM allocation</label>
               <div class="control">
                 <input class="input" type="text" placeholder="10G" id="minRam">
               </div>
             </div>
             <div class="field column">
-              <label class="label">Max RAM allocation</label>
+              <label class="label" for="maxRam">Max RAM allocation</label>
               <div class="control">
                 <input class="input" type="text" placeholder="10G" id="maxRam">
               </div>
             </div>
             <div class="field column">
-              <label class="label">Use GUI?</label>
+              <label class="label" for="gui">Use GUI?</label>
               <div class="control">
                 <input class="checkbox" type="checkbox" id="gui">
               </div>
