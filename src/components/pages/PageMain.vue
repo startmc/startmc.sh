@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       popup.classList.remove("hide")
 
-      let x = e.clientX;
-      let y = e.clientY;
+      let x = (e.clientX - 170);
+      let y = (e.clientY - 90);
 
       popup.style.top = y + "px"
       popup.style.left = x + "px"
@@ -138,8 +138,6 @@ function getGui() {
 }
 
 function regenCode() {
-  console.log('regenning..... xddd hi blue')
-
   let ram = getRam();
   let isGuiEnabled = getGui();
   let jarName = getJarFileName();
