@@ -40,7 +40,7 @@
 <script>
   export default {
     name: "PageMain"
-}
+  }
 </script>
 
 <style scoped>
