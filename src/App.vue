@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
+  <div id="app p-0 m-0">
     <Layout>
       <template v-slot:header>
-        <h1>startmc.sh</h1>
+        <Header></Header>
       </template>
       <template v-slot:content>
-        <p>click to gernate start.sh xXDDD</p>
+        <PageMain></PageMain>
       </template>
       <template v-slot:footer>
-        <h1>made by aber and blue POG SO HRA POG POGPO G</h1>
+        <Footer></Footer>
       </template>
     </Layout>
   </div>
@@ -16,10 +16,16 @@
 
 <script>
 
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import PageMain from "@/components/pages/PageMain";
 export default {
   name: 'App',
   components: {
+    PageMain,
+    Footer,
+    Header,
     Layout
   }
 }
@@ -33,5 +39,26 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+
+.bg-1 {
+  background-color: #FFCAB1;
+}
+
+.bg-2 {
+  background-color: #ECDCB0;
+}
+
+.bg-3 {
+  background-color: #C1D7AE;
+}
+
+.bg-4 {
+  background-color: #EC4067;
+}
+
+.bg-5 {
+  background-color: #A01A7D;
 }
 </style>
