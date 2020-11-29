@@ -36,7 +36,7 @@
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
         <pre class="p-0 m-0">
-            <code class="p-0" id="script"></code>
+            <code class="p-0" id="script">Enter your server's details</code>
           </pre>
       </div>
     </div>
