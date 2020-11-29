@@ -40,7 +40,7 @@
       <div class="box">
         <!-- TODO: Click to copy to clipboard -->
         <h1 class="subtitle">💾 Copy your start script</h1>
-        <pre class="p-0 m-0 script" id="script">Waiting for Input</pre>
+        <pre class="p-0 m-0 script" id="script">Waiting for input</pre>
         <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a
           flag to learn more about it's purpose!</p>
       </div>
@@ -72,7 +72,7 @@ export default {
 
 let flags = {
   "-XX:+UseG1GC": "This enables the Java G1 garbage collector.",
-  "-XX:+ParallelRefProcEnabled": "",
+  "-XX:+ParallelRefProcEnabled": "N/A", // TODO
   "-XX:MaxGCPauseMillis=200": "This tells the JVM to aim for a max garbage collection time of 200 milliseconds. This is useful, because long pauses for garbage collection will interfere with your server's performance.",
   "-XX:+UnlockExperimentalVMOptions": "This enables experimental JVM flags. Don't worry, these flags have been created by one of the smartest members of our community, and tested by thousands of servers.",
   "-XX:+DisableExplicitGC": "This disables the System.gc() method call. Plugins may think they are doing something good by explicitly calling the GC, but in this case it is best to leave it up to the JVM.",
@@ -81,9 +81,9 @@ let flags = {
   "-XX:G1MaxNewSizePercent=40": "This gives the GC more room to breathe, and results in less GC cycles (and thus less lag.)",
   "-XX:G1HeapRegionSize=8M": "This sends fewer objects to the old gen, which means there will be less time spent cleaning up old gen memory.",
   "-XX:G1ReservePercent=20": "This ensures that there is more space for memory to move around.",
-  "-XX:G1HeapWastePercent=5": "N/A",
+  "-XX:G1HeapWastePercent=5": "N/A", // TODO
   "-XX:G1MixedGCCountTarget=4": "This instructs the JVM to reclaim old gen ",
-  "-XX:InitiatingHeapOccupancyPercent=15": "N/A",
+  "-XX:InitiatingHeapOccupancyPercent=15": "N/A", // TODO
   "-XX:G1MixedGCLiveThresholdPercent=90": "This sends fewer objects to the old gen, which means there will be less time spent cleaning up old gen memory.",
   "-XX:G1RSetUpdatingPauseTimePercent=5": "Reduces GC pause durations.",
   "-XX:SurvivorRatio=32": "Reduces the survivor space, as MaxTenuringTheshold was increased.",
@@ -142,15 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!waitingForCode) return;
     if (dotCount < 3) {
       ++dotCount;
-      if (!status.innerHTML.startsWith('Waiting for Input')) {
-        status.innerHTML = "Waiting for Input";
+      if (!status.innerHTML.startsWith('Waiting for input')) {
+        status.innerHTML = "Waiting for input";
       }
       status.innerHTML += ".";
     } else {
-      status.innerHTML = "Waiting for Input";
+      status.innerHTML = "Waiting for input";
       dotCount = 0;
     }
-  }, 450);
+  }, 500);
 });
 
 function getRam() {
