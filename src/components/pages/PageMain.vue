@@ -31,7 +31,7 @@
     <div class="column">
       <div class="box">
         <h1 class="subtitle">💾 Copy your start script</h1>
-          <pre class="p-0 m-0 script" id="script">Waiting for input...</pre>
+          <pre class="p-0 m-0 script" id="script">Waiting for Input</pre>
         <p class="py-2 is-size-6 is-hidden" id="help-text">This might look scary, but don't worry. You can hover over a flag to learn more about it's purpose!</p>
       </div>
     </div>
@@ -84,6 +84,8 @@ let flags = {
 
 let scriptElement;
 
+let waitingForCode = true;
+
 document.addEventListener("DOMContentLoaded", function () {
   scriptElement = document.getElementById("script");
 
@@ -119,7 +121,20 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       popup.classList.add("hide")
     }
-  })
+  });
+
+  const status = document.getElementById("script");
+  let dotCount = 0;
+  window.setInterval(function() {
+    if (!waitingForCode) return;
+    if (dotCount < 3) {
+        ++dotCount;
+        status.innerHTML += ".";
+    } else {
+        status.innerHTML = "Waiting for Input";
+        dotCount = 0;
+    }
+  }, 450);
 });
 
 function getRam() {
@@ -139,7 +154,7 @@ function regenCode() {
   let isGuiEnabled = getGui();
   let jarName = getJarFileName();
 
-  // check jar validity
+  // check ram validity
   if (ram !== '' && ram.match(/([MmGg])$/) == null) {
     document.getElementById("ram").classList.add("is-warning")
     document.getElementById("ram-help").classList.remove("is-hidden")
@@ -162,6 +177,7 @@ function regenCode() {
     return;
   }
 
+  waitingForCode = false;
   scriptElement.innerHTML = ""
 
   // create prefix element
