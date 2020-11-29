@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
       status.innerHTML = "Waiting for Input";
       dotCount = 0;
     }
-  }, 450);
+  }, 500);
 });
 
 function getRam() {
