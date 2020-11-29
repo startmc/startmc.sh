@@ -15,11 +15,9 @@
 
 <style scoped>
 .footer-sticky {
-  position: fixed;
-  left: 0;
+  position: sticky;
   bottom: 0;
   width: 100%;
-  color: white;
   text-align: center;
 }
 </style>
