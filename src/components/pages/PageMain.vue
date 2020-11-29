@@ -32,7 +32,8 @@
         <pre class="p-0 m-0 script-container">
           <code class="p-0 m-0 script" id="script">Waiting for input...</code>
         </pre>
-        <p class="py-2 is-size-6">This might look scary, but don't worry. You can click on a flag to learn more about it's purpose!</p>
+        <p class="py-2 is-size-6">This might look scary, but don't worry. You can click on a flag to learn more about
+          it's purpose!</p>
       </div>
     </div>
     <div class="column">
@@ -53,6 +54,29 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('jarFileName').addEventListener("input", regenCode);
   document.getElementById('gui').addEventListener("change", regenCode);
 });
+
+let flags = {
+  "-XX:+UseG1GC": "This enables the Java G1 garbage collector.",
+  "-XX:+ParallelRefProcEnabled": "",
+  "-XX:MaxGCPauseMillis=200": "",
+  "-XX:+UnlockExperimentalVMOptions": "",
+  "-XX:+DisableExplicitGC": "",
+  "-XX:+AlwaysPreTouch": "",
+  "-XX:G1NewSizePercent=30": "",
+  "-XX:G1MaxNewSizePercent=40": "",
+  "-XX:G1HeapRegionSize=8M": "",
+  "-XX:G1ReservePercent=20": "",
+  "-XX:G1HeapWastePercent=5": "",
+  "-XX:G1MixedGCCountTarget=4": "",
+  "-XX:InitiatingHeapOccupancyPercent=15": "",
+  "-XX:G1MixedGCLiveThresholdPercent=90": "",
+  "-XX:G1RSetUpdatingPauseTimePercent=5": "",
+  "-XX:SurvivorRatio=32": "",
+  "-XX:+PerfDisableSharedMem": "",
+  "-XX:MaxTenuringThreshold=1": "",
+  "-Dusing.aikars.flags=https://mcflags.emc.gs": "This tells the Paper timings system that you are using aikar's flags.",
+  "-Daikars.new.flags=true": "This tells the Paper timings sytem that you are using the updated version of aikar's flags.",
+}
 
 function getRam() {
   return document.getElementById('ram').value;
@@ -77,7 +101,17 @@ function regenCode() {
     return;
   }
 
-  let code = `java -Xms${ram} -Xmx${ram} -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar ${jarName}${isGuiEnabled ? ' nogui' : ''}`;
+  let code = `java -Xms${ram} -Xmx${ram}`
+
+  for (var key in Object.keys(flags)) {
+    code += key + " "
+  }
+
+  if (isGuiEnabled) {
+    code += 'nogui'
+  }
+
+  //let code = `java -Xms${ram} -Xmx${ram} -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar ${jarName}${isGuiEnabled ? ' nogui' : ''}`;
 
   document.querySelector('#script').innerHTML = code;
 }
