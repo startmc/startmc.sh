@@ -33,6 +33,16 @@
               <input class="checkbox" type="checkbox" id="gui">
             </div>
           </div>
+          <div class="field column">
+            <label class="label" for="ptero">Are you on Pterodactyl Panel?
+              <information-icon
+                  data-tooltip="Is your server running on Pterodactyl Panel?"></information-icon>
+            </label>
+            <div class="control">
+              <!-- TODO: Nicer checkbox class -->
+              <input class="checkbox" type="checkbox" id="ptero">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -103,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('ram').addEventListener("input", regenCode);
   document.getElementById('jarFileName').addEventListener("input", regenCode);
   document.getElementById('gui').addEventListener("change", regenCode);
+  document.getElementById('ptero').addEventListener("change", regenCode);
 
   document.addEventListener('mousemove', (e) => {
     let element = e.target;
@@ -165,9 +176,14 @@ function getGui() {
   return document.getElementById("gui").checked
 }
 
+function getPtero() {
+  return document.getElementById("ptero").checked
+}
+
 function regenCode() {
   let ram = getRam();
   let isGuiEnabled = getGui();
+  let isPteroUsed = getPtero();
   let jarName = getJarFileName();
 
   // check ram validity
@@ -217,6 +233,11 @@ function regenCode() {
 
   for (let flag in flags) {
     i++;
+    
+    // exclude AlwaysPreTouch for pterodactyl
+    // see https://github.com/startmc/startmc.sh/issues/4
+    if (isPteroUsed && flag === "-XX:+AlwaysPreTouch") continue;
+    
     let flagElement = document.createElement("span")
     flagElement.style.whiteSpace = 'nowrap'
     flagElement.id = flag
