@@ -180,8 +180,15 @@ function getPtero() {
   return document.getElementById("ptero").checked
 }
 
+function isMoreThen12(value, suffix) {
+    return ((suffix === "G" || suffix === "g") && value > 12) || ((suffix === "M" || suffix === "m") && value > 12000);
+}
+
 function regenCode() {
   let ram = getRam();
+  let ramValue = ram.replace(/[^0-9]/g, '');
+  let ramSuffix = ram.slice(-1);
+  
   let isGuiEnabled = getGui();
   let isPteroUsed = getPtero();
   let jarName = getJarFileName();
@@ -204,7 +211,6 @@ function regenCode() {
     document.getElementById("jarFileName").classList.remove("is-warning")
     document.getElementById("jarfile-help").classList.add("is-hidden")
   }
-
 
   if (ram === '' && jarName === '') {
     waitingForCode = true;
@@ -237,6 +243,24 @@ function regenCode() {
     // exclude AlwaysPreTouch for pterodactyl
     // see https://github.com/startmc/startmc.sh/issues/4
     if (isPteroUsed && flag === "-XX:+AlwaysPreTouch") continue;
+	
+	console.log(ramValue + " " + ramSuffix);
+    
+    // change flags if more then 12GB
+    // see https://github.com/startmc/startmc.sh/issues/1
+    if (isMoreThen12(ramValue, ramSuffix)) {
+        if (flag === "-XX:G1NewSizePercent=30") {
+            flag = "-XX:G1NewSizePercent=40";
+        } else if (flag === "-XX:G1MaxNewSizePercent=40") {
+            flag = "-XX:G1MaxNewSizePercent=50";
+        } else if (flag === "-XX:G1HeapRegionSize=8M") {
+            flag = "-XX:G1HeapRegionSize=16M";
+        } else if (flag === "-XX:G1ReservePercent=20") {
+            flag = "-XX:G1ReservePercent=15";
+        } else if (flag === "-XX:InitiatingHeapOccupancyPercent=15") {
+            flag = "-XX:InitiatingHeapOccupancyPercent=20";
+        }
+    }
     
     let flagElement = document.createElement("span")
     flagElement.style.whiteSpace = 'nowrap'
