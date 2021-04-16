@@ -236,7 +236,7 @@ function regenCode() {
   
   if (isPteroUsed) {
 	flags["-Dterminal.jline=false"] = "This disables the JLine library, used for handling console input.";
-	flags["-Dterminal.ansi=true"] = "This disables the Ansi library, used for handling console input.";
+	flags["-Dterminal.ansi=true"] = "This enables the Ansi library, used for handling console input.";
   } else {
 	delete flags["-Dterminal.jline=false"];
 	delete flags["-Dterminal.ansi=true"];
