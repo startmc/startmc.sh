@@ -251,6 +251,24 @@ function regenCode() {
     // exclude AlwaysPreTouch for pterodactyl
     // see https://github.com/startmc/startmc.sh/issues/4
     if (isPteroUsed && flag === "-XX:+AlwaysPreTouch") continue;
+	
+	console.log(ramValue + " " + ramSuffix);
+    
+    // change flags if more then 12GB
+    // see https://github.com/startmc/startmc.sh/issues/1
+    if (isMoreThen12(ramValue, ramSuffix)) {
+        if (flag === "-XX:G1NewSizePercent=30") {
+            flag = "-XX:G1NewSizePercent=40";
+        } else if (flag === "-XX:G1MaxNewSizePercent=40") {
+            flag = "-XX:G1MaxNewSizePercent=50";
+        } else if (flag === "-XX:G1HeapRegionSize=8M") {
+            flag = "-XX:G1HeapRegionSize=16M";
+        } else if (flag === "-XX:G1ReservePercent=20") {
+            flag = "-XX:G1ReservePercent=15";
+        } else if (flag === "-XX:InitiatingHeapOccupancyPercent=15") {
+            flag = "-XX:InitiatingHeapOccupancyPercent=20";
+        }
+    }
     
     console.log(ramValue + " " + ramSuffix);
     
