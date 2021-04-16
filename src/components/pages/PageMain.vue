@@ -251,8 +251,6 @@ function regenCode() {
     // exclude AlwaysPreTouch for pterodactyl
     // see https://github.com/startmc/startmc.sh/issues/4
     if (isPteroUsed && flag === "-XX:+AlwaysPreTouch") continue;
-	
-	console.log(ramValue + " " + ramSuffix);
     
     // change flags if more then 12GB
     // see https://github.com/startmc/startmc.sh/issues/1
