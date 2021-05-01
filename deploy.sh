@@ -1,19 +1,14 @@
 #!/usr/bin/env sh
-
-set -e #abort on error
-
-npm run build #build
-
-cd dist #enter build dir
-
-echo 'startmc.sh' >> CNAME
-
-git init #initialize new repo
-
+# abort on errors
+set -e
+# build
+yarn run build
+# navigate into the build output directory
+cd dist
+# if you are deploying to a custom domain
+# echo 'www.example.com' > CNAME
+git init
 git add -A
-
-git commit -m "deploy"
-
-git push -f https://github.com/startmc/startmc.github.io master:gh-pages
-
+git commit -m 'deploy'
+git push -f git@github.com:stijnb1234/startmc.sh.git master:gh-pages
 cd -
