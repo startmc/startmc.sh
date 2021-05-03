@@ -1,19 +1,21 @@
 #!/usr/bin/env sh
 
-set -e #abort on error
+# abort on errors
+set -e
 
-npm run build #build
+# build
+npm run build
 
-cd dist #enter build dir
+cd dist
 
-echo 'startmc.sh' >> CNAME
+# echo 'www.example.com' > CNAME
 
-git init #initialize new repo
+git init
 
 git add -A
 
-git commit -m "deploy"
+git commit -m 'deploy'
 
-git push -f https://github.com/startmc/startmc.github.io master:gh-pages
+git push -f git@github.com:stijnb1234/startmc.sh.git master:gh-pages
 
 cd -
