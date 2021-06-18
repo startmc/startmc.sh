@@ -6,7 +6,6 @@
       <h6 class="footer-text subtitle has-text-white has-text-centered">Thanks to <a href="https://aikar.co/" target="_blank">Aikar</a> and his fantastic <a href="https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/" target="_blank">flags</a>.</h6>
       <h6 class="footer-text subtitle has-text-white has-text-centered">Having issues with the website? Let us know in <a href="https://chat.ksc.sh" target="_blank">my Discord's support channel</a>.</h6>
       <h6 class="footer-text subtitle has-text-white has-text-centered">Need more help? Check out the <a href="https://www.reddit.com/r/syscraft/" target="_blank">/r/syscraft</a> <a href=" https://discord.gg/Dx6SSkx" target="_blank">Discord community</a>.</h6>
-      <h6 class="footer-text subtitle has-text-white has-text-centered">Does your server run <a href="https://papermc.io/" target="_blank">Paper</a>? It should.</h6>
     </div>
   </footer>
 </template>
