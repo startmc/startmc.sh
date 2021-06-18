@@ -309,7 +309,7 @@ function regenCode() {
   }
 
   // create suffix element
-  let suffix = ` -jar ${jarName} ${isGuiEnabled ? '' : ' nogui'}`
+  let suffix = ` -jar ${jarName} ${isGuiEnabled ? '' : ' --nogui'}`
 
   let suffixElement = document.createElement("span")
 
