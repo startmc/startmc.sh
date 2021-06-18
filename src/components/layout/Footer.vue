@@ -26,7 +26,7 @@
 
 .footer-text {
   margin-top: 0.3em;
-  margin-bottom: 0.3em;
+  margin-bottom: 1em;
 }
 
 .content a {
