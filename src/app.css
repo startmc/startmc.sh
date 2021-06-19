@@ -1,0 +1,17 @@
+body, html {
+    padding: 0;
+    min-height: 100vh;
+}
+
+:root {
+    font-family: 'Roboto', sans-serif;
+
+    --bg-light: #4764cc;
+    --bg-dark: #2f3e73;
+    --text-light: #e3e3e3;
+    --text-dark: #1c1c1c;
+}
+
+.font-mono {
+    font-family: 'Roboto Mono', monospace;
+}
