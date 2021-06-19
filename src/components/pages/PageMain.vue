@@ -63,7 +63,7 @@
     <br>
     <div class="flag-popup hide" id="popup">
       <article class="message">
-        <div class="message-header"></div>
+        <div class="message-header" style="font-size: 3rem;"></div>
         <div class="message-body" style="border: solid #4A4A4A 1px;"></div>
       </article>
     </div>
@@ -345,6 +345,7 @@ function regenCode() {
 #popup {
   opacity: 1;
   transition: opacity 0.1s linear;
+  z-index: 1;
 }
 
 .hide {
