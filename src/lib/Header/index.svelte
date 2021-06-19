@@ -46,9 +46,6 @@
         margin: 0;
     }
 
-    .logo-container {
-    }
-
     .logo {
         max-width: 7em;
         margin-right: 2rem;
