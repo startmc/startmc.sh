@@ -7,9 +7,9 @@ body, html {
 :root {
     font-family: 'Roboto', sans-serif;
 
-    --bg-light: #4764cc;
+    --bg-light: #3a49b8;
     --bg-dark: #2f3e73;
-    --text-light: #f3f3f3;
+    --text-light: #ffffff;
     --text-dark: #1c1c1c;
 }
 
