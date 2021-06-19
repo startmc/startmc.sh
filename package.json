@@ -8,7 +8,10 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
+    "@sveltejs/adapter-static": "next",
     "svelte": "^3.34.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+  }
 }
