@@ -12,10 +12,11 @@ body, html {
     /*font-family: 'Roboto', sans-serif;*/
     font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 
-    --bg-light: #7ed086;
-    --bg-dark: #2f3e73;
+    --bg-light: #41b883;
+    --bg-dark: #34495e;
     --bg-light-alt: #eeeeee;
     --text-light: #ffffff;
+    --text-link: #accbe8;
     --text-dark: #242424;
 
     color: var(--text-dark);
@@ -23,4 +24,8 @@ body, html {
 
 .font-mono {
     font-family: 'Roboto Mono', monospace;
+}
+
+a {
+    color: var(--text-link);
 }
