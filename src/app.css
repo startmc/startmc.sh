@@ -9,13 +9,16 @@ body, html {
 }
 
 :root {
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 
-    --bg-light: #3a49b8;
+    --bg-light: #7ed086;
     --bg-dark: #2f3e73;
-    --bg-light-alt: #929292;
+    --bg-light-alt: #eeeeee;
     --text-light: #ffffff;
-    --text-dark: #1c1c1c;
+    --text-dark: #242424;
+
+    color: var(--text-dark);
 }
 
 .font-mono {
