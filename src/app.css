@@ -29,3 +29,7 @@ body, html {
 a {
     color: var(--text-link);
 }
+
+a:link {
+    text-decoration: none;
+}
