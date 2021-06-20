@@ -5,12 +5,12 @@
 <StepCard title="📝 Enter your server's details">
     <div class="forms">
         <form class="form">
-            <label class="label" for="filename">Your server's .jar filename</label>
+            <label class="label" for="filename"><strong>Your server's .jar filename</strong></label>
             <input id="filename" class="input" type="text" placeholder="server.jar">
             <p class="help help-filename"><small>You might be missing '.jar'</small></p>
         </form>
         <form class="form">
-            <label class="label" for="ram">RAM allocation</label>
+            <label class="label" for="ram"><strong>RAM allocation</strong></label>
             <input id="ram" class="input" type="text" placeholder="10G, 2048M">
             <p class="help help-ram"><small>You might be missing the memory size. M = megabytes, G = gigabytes.</small></p>
         </form>
@@ -21,6 +21,7 @@
     .forms {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         padding: 0.2em;
     }
@@ -30,6 +31,7 @@
         flex-direction: column;
         flex: 1;
         margin-inline: 1em;
+        margin-bottom: 1em;
     }
 
     .input {
