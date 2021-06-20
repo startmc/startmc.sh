@@ -7,7 +7,7 @@
         <h2 class="card-title">{ title }</h2>
     </div>
     <div class="card-content">
-        <slot></slot>
+        <slot />
     </div>
 </section>
 
