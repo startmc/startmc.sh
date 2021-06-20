@@ -16,7 +16,7 @@
         padding: 1em;
         display: flex;
         flex-direction: column;
-        width: 80em;
+        width: 100%;
         background-color: var(--bg-light-alt);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
         position: relative;
