@@ -1,4 +1,4 @@
-<header class="footer">
+<footer class="footer">
     <div class="footer-layout">
         <ul class="list">
             <li class="list-text"><a>aber</a> 🤝 <a>blue</a></li>
@@ -6,7 +6,7 @@
             <li class="list-text"><a href="https://chat.ksc.sh/">💬 on discord</a></li>
         </ul>
     </div>
-</header>
+</footer>
 
 <style>
     .footer {
