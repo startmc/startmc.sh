@@ -1,5 +1,5 @@
-<header class="header">
-    <div class="header-layout">
+<header class="footer">
+    <div class="footer-layout">
         <div class="logo-container">
             <img class="logo" src="/logo.png"  alt="The beautiful startmc.sh logo." />
         </div>
@@ -11,7 +11,7 @@
 </header>
 
 <style>
-    .header {
+    .footer {
         padding: 1em;
         background-color: var(--bg-light);
         width: 100%;
@@ -22,10 +22,10 @@
         justify-content: center;
     }
 
-    .header-layout {
+    .footer-layout {
         display: flex;
         flex-direction: row;
-        width: 60vw;
+        width: 70vw;
     }
 
     .text-container {
@@ -56,7 +56,7 @@
             width: 0;
         }
 
-        .header-layout {
+        .footer-layout {
             width: 100%;
         }
     }
