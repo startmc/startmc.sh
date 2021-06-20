@@ -1,9 +1,9 @@
 <header class="footer">
     <div class="footer-layout">
         <ul class="list">
-            <li class="list-text">by <a>aber</a> and <a>blue</a></li>
-            <li class="list-text"><a href="https://github.com/startmc/startmc.sh">startmc.sh on github.com</a></li>
-            <li class="list-text"><a href="https://chat.ksc.sh/">startmc.sh on discord</a></li>
+            <li class="list-text"><a>aber</a> 🤝 <a>blue</a></li>
+            <li class="list-text"><a href="https://github.com/startmc/startmc.sh">⭐ on github</a></li>
+            <li class="list-text"><a href="https://chat.ksc.sh/">💬 on discord</a></li>
         </ul>
     </div>
 </header>
