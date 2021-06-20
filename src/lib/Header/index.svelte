@@ -35,13 +35,11 @@
     }
 
     .title {
-        color: var(--text-light);
         font-size: 2rem;
         margin: 0;
     }
 
     .tagline {
-        color: var(--text-light);
         font-size: 1.5rem;
         margin: 0;
     }
@@ -49,5 +47,17 @@
     .logo {
         max-width: 7em;
         margin-right: 2rem;
+    }
+
+    @media screen and (max-width: 640px) {
+        .logo-container, .logo, .tagline {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+        }
+
+        .header-layout {
+            width: 100%;
+        }
     }
 </style>
