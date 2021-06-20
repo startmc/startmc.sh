@@ -1,16 +1,11 @@
-import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-node'
 
 const config = {
     kit: {
         // hydrate the <div id="svelte"> element in src/app.html
-        target: '#svelte',
-        adapter: adapter({
-            // default options are shown
-            pages: 'dist',
-            assets: 'dist',
-            fallback: null
-        })
+        target: '#app',
+        adapter: adapter()
     }
-};
+}
 
 export default config;

@@ -7,11 +7,12 @@
     "preview": "svelte-kit preview"
   },
   "devDependencies": {
-    "@sveltejs/kit": "next",
     "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
     "svelte": "^3.34.0"
   },
   "type": "module",
   "dependencies": {
+    "@sveltejs/adapter-node": "^1.0.0-next.0"
   }
 }
