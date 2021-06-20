@@ -28,6 +28,7 @@ body, html {
 
 a {
     color: var(--text-link);
+    font-weight: 600;
 }
 
 a:link {
