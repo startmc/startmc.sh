@@ -4,6 +4,9 @@ module.exports = {
     apps: [{
         name: "v2.startmc.sh",
         script: "./build/index.js",
-        watch: true
+        watch: true,
+        env: {
+            "PORT": "3003"
+        }
     }]
 }
