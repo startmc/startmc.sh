@@ -25,6 +25,14 @@
 
     .layout-content {
         margin-top: 5em;
+        width: 60vw;
+        padding: 1em;
         flex: 1;
+    }
+
+    @media screen and (max-width: 640px) {
+        .layout-content {
+            width: 100%;
+        }
     }
 </style>
