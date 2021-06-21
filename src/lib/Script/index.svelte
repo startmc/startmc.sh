@@ -27,12 +27,19 @@
      */
     export let filename;
 
-    let scriptText = `${javaPath} -jar ${filename} -Xmx${ramXmx} -Xms${ramXms}`
+    /**
+     * Is the script for use with Pterodactyl?
+     */
+    export let pterodactyl;
+
+    const flagText = Object.keys(flags).join(' ')
+
+    $: scriptText = `${javaPath} -jar ${filename} -Xmx${ramXmx} -Xms${ramXms} ${flagText}`
 </script>
 
 <div class="script-container">
     {#if loaded}
-        <p>{scriptText}</p>
+        <p class="script-light">{scriptText}</p>
     {:else}
         <p class="script-light">Waiting for input... (Not working? Hit '<input type="submit" formmethod="post" class="button" value="Generate" form="serverForm">')</p>
     {/if}
@@ -51,6 +58,8 @@
 
     .script-light {
         color: #4c4c4c;
+        line-height: 2em;
+        font-size: 1.05em;
     }
 
     .button {
