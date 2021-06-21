@@ -1,38 +1,30 @@
 <script>
     import StepCard from '$lib/StepCard/index.svelte'
+    import Script from '$lib/Script/index.svelte'
+
+    import { session } from '$app/stores'
+    console.log($session)
+
+    function handleKeydown(event) {
+        console.log(event)
+    }
 </script>
 
-<StepCard title="💾 Generate your start script">
+<svelte:window on:keydown={handleKeydown} />
+
+<StepCard title="💾 Generate your start command">
+    <input type="submit" form="serverForm"/>
+    <Script />
+    <p class="subtext">These descriptions only intend to provide a surface level understanding of the flag and its effects on Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
 </StepCard>
 
 <style>
-    .forms {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0.2em;
+    .command-container {
+        background-color: white;
     }
 
-    .form {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        margin-inline: 1em;
-    }
-
-    .input {
-        margin: 0.3em 0;
-        border: 1px solid rgb(170, 170, 170);
-        border-radius: 0.2em;
-        padding: 0.3em;
-        font-size: 1em;
-    }
-
-    .input:focus {
-        border: 1px solid var(--bg-light-alt)
-    }
-
-    .help {
-        margin: 0;
+    .subtext {
+        padding-left: 20em;
+        padding-right: 20em;
     }
 </style>
