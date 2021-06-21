@@ -20,7 +20,7 @@
                         <input name="pterodactyl" id="pterodactyl" type="checkbox">
                         <label class="label" for="pterodactyl"><strong>Pterodactyl Panel</strong></label>
                     </div>
-                    <p class="subtext">When checked, this fixes an out-of-memory error when using these flags with Pterodactyl.</p>
+                    <p class="subtext">Improves compatibility with Pterodactyl when checked.</p>
                 </div>
             </div>
         </form>
