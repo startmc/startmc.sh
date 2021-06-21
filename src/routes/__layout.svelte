@@ -24,8 +24,8 @@
     }
 
     .layout-content {
-        margin-top: 5em;
         width: 60vw;
+        margin-top: 1em;
         padding: 1em;
         flex: 1;
     }
