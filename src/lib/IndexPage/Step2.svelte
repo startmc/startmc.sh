@@ -1,0 +1,39 @@
+<script>
+    import StepCard from '$lib/StepCard/index.svelte'
+    import ScriptView from '$lib/Script/index.svelte'
+
+    import {session} from '$app/stores'
+
+    let filename = $session.server.filename;
+
+    let ram = $session.server.ram;
+    let pterodactyl = $session.server.pterodactyl;
+    let loaded = !!(filename && ram);
+
+    function updateValues(event) {
+
+        pterodactyl = document.getElementById("pterodactyl").checked
+        ram = document.getElementById("ram").value
+        filename = document.getElementById("filename").value
+        loaded = !!(filename && ram);
+
+    }
+</script>
+
+<svelte:window on:keyup={updateValues} on:load={updateValues}/>
+
+<StepCard title="💾 Generate your start command">
+    <ScriptView bind:filename bind:ram bind:pterodactyl bind:loaded/>
+    <p></p>
+    {#if loaded}
+        <p>These descriptions only intend to provide a quick understanding of the flag and its effects on
+            Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
+    {/if}
+</StepCard>
+
+<style>
+    .subtext {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+</style>
