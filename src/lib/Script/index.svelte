@@ -1,11 +1,19 @@
 <script>
+    import flags from '../flags'
+
     /**
-     * The amount of ram to give the --Xmx flag.
+     * If this is true, the component will show the script.
+     * If this is false, the component will display the waiting for input text.
+     */
+    export let loaded = false;
+
+    /**
+     * The amount of ram to give the -Xmx flag.
      */
     export let ramXmx;
 
     /**
-     * The amount of ram to give the --Xms flag.
+     * The amount of ram to give the -Xms flag.
      */
     export let ramXms;
 
@@ -18,10 +26,16 @@
      * The name of the server's file.
      */
     export let filename;
+
+    let scriptText = `${javaPath} -jar ${filename} -Xmx${ramXmx} -Xms${ramXms}`
 </script>
 
 <div class="script-container">
-    <p>java -jar {filename}</p>
+    {#if loaded}
+        <p>{scriptText}</p>
+    {:else}
+        <p class="script-light">Waiting for input... (Not working? Hit '<input type="submit" class="button" value="Generate" form="serverForm">')</p>
+    {/if}
 </div>
 
 <style>
@@ -33,5 +47,16 @@
         font-family: 'Roboto Mono', monospace;
         font-weight: 400;
         padding: 0.4em;
+    }
+
+    .script-light {
+        color: #4c4c4c;
+    }
+
+    .button {
+        font-size: 1em;
+        font-family: 'Roboto Mono', monospace;
+        padding: 0.1em;
+        border: none;
     }
 </style>

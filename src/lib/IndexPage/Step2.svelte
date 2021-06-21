@@ -13,7 +13,6 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <StepCard title="💾 Generate your start command">
-    <input type="submit" form="serverForm"/>
     <Script />
     <p class="subtext">These descriptions only intend to provide a surface level understanding of the flag and its effects on Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
 </StepCard>
