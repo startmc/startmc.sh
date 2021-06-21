@@ -3,7 +3,7 @@
 </script>
 
 <StepCard title="📝 Enter your server's details">
-        <form class="form" id="serverForm">
+        <form class="form" id="serverForm" autocomplete="off">
             <div class="form-column">
                 <div class="form-section">
                     <label class="label" for="filename"><strong>.jar file</strong></label>
