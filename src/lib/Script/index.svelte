@@ -8,14 +8,9 @@
     export let loaded = false;
 
     /**
-     * The amount of ram to give the -Xmx flag.
+     * The amount of ram to give the -Xms and -Xmx flags.
      */
-    export let ramXmx;
-
-    /**
-     * The amount of ram to give the -Xms flag.
-     */
-    export let ramXms;
+    export let ram;
 
     /**
      * Java's path.
@@ -32,9 +27,9 @@
      */
     export let pterodactyl;
 
-    const flagText = Object.keys(flags).join(' ')
+    $: flagText = `${Object.keys(flags).join(' ')} ${pterodactyl ? "-XX:+AlwaysPreTouch" : ""}`
 
-    $: scriptText = `${javaPath} -jar ${filename} -Xmx${ramXmx} -Xms${ramXms} ${flagText} --nogui`
+    $: scriptText = `${javaPath} -jar ${filename} -Xmx${ram} -Xms${ram} ${flagText} --nogui`
 </script>
 
 <div class="script-container">
@@ -69,6 +64,11 @@
         font-family: 'Roboto Mono', monospace;
         font-weight: 600;
         background-color: transparent;
+        text-decoration: underline;
         border: none;
+    }
+
+    .button:hover {
+        cursor: pointer;
     }
 </style>
