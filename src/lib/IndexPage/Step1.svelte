@@ -16,7 +16,7 @@
                 <label class="label" for="pterodactyl"><strong>Pterodactyl Panel</strong></label>
                 <div class="checkbox-container">
                     <input name="pterodactyl" id="pterodactyl" type="checkbox">
-                    <p>This checkbox fixes an out-of-memory error when using these flags with Pterodactyl when checked.</p>
+                    <p class="subtext">This checkbox fixes an out-of-memory error when using these flags with Pterodactyl when checked.</p>
                 </div>
             </div>
         </form>
@@ -65,12 +65,6 @@
         border-radius: 0.2em;
         padding: 0.3em;
         font-size: 1em;
-    }
-
-    .checkbox-container p {
-        margin: 0;
-        font-style: italic;
-        color: gray;
     }
 
     .input:focus {
