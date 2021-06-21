@@ -10,7 +10,7 @@
     let pterodactyl = $session.server.pterodactyl;
     let loaded = !!(filename && ram);
 
-    function handleKeyPress(event) {
+    function updateValues(event) {
 
         pterodactyl = document.getElementById("pterodactyl").checked
         ram = document.getElementById("ram").value
@@ -20,12 +20,15 @@
     }
 </script>
 
-<svelte:window on:keyup={handleKeyPress} on:load={handleKeyPress}/>
+<svelte:window on:keyup={updateValues} on:load={updateValues}/>
 
 <StepCard title="💾 Generate your start command">
-    <ScriptView bind:filename={filename} bind:ramXmx={ram} bind:ramXms={ram} bind:pterodactyl={pterodactyl} bind:loaded="{loaded}"/>
-    <p class="subtext">These descriptions only intend to provide a quick understanding of the flag and its effects on
-        Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
+    <ScriptView bind:filename bind:ram bind:pterodactyl bind:loaded/>
+    <p></p>
+    {#if loaded}
+        <p>These descriptions only intend to provide a quick understanding of the flag and its effects on
+            Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
+    {/if}
 </StepCard>
 
 <style>
