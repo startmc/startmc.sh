@@ -3,22 +3,27 @@
 </script>
 
 <StepCard title="📝 Enter your server's details">
-    <div class="forms">
-        <form class="form">
-            <label class="label" for="filename"><strong>Your server's .jar filename</strong></label>
-            <input id="filename" class="input" type="text" placeholder="server.jar">
-            <p class="help help-filename"><small>You might be missing '.jar'</small></p>
+        <form class="form" id="serverForm">
+            <div class="form-section">
+                <label class="label" for="filename"><strong>.jar file</strong></label>
+                <input name="filename" id="filename" class="input" type="text" placeholder="server.jar">
+            </div>
+            <div class="form-section">
+                <label class="label" for="ram"><strong>RAM allocation</strong></label>
+                <input name="ram" id="ram" class="input" type="text" placeholder="10G, 2048M">
+            </div>
+            <div class="form-section">
+                <label class="label" for="pterodactyl"><strong>Pterodactyl Panel</strong></label>
+                <div class="checkbox-container">
+                    <input name="pterodactyl" id="pterodactyl" type="checkbox">
+                    <p>This checkbox fixes an out-of-memory error when using these flags with Pterodactyl when checked.</p>
+                </div>
+            </div>
         </form>
-        <form class="form">
-            <label class="label" for="ram"><strong>RAM allocation</strong></label>
-            <input id="ram" class="input" type="text" placeholder="10G, 2048M">
-            <p class="help help-ram"><small>You might be missing the memory size. M = megabytes, G = gigabytes.</small></p>
-        </form>
-    </div>
 </StepCard>
 
 <style>
-    .forms {
+    .form {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -26,12 +31,16 @@
         padding: 0.2em;
     }
 
-    .form {
+    .form-section {
         display: flex;
         flex-direction: column;
         flex: 1;
         margin-inline: 1em;
         margin-bottom: 1em;
+    }
+
+    .label {
+        font-size: 1.25rem;
     }
 
     .input {
@@ -42,11 +51,29 @@
         font-size: 1em;
     }
 
-    .input:focus {
-        border: 1px solid var(--bg-light-alt)
+    .checkbox-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
     }
 
-    .help {
+    .checkbox-container input {
+        margin: 0.3em 0;
+        border: 1px solid rgb(170, 170, 170);
+        border-radius: 0.2em;
+        padding: 0.3em;
+        font-size: 1em;
+    }
+
+    .checkbox-container p {
         margin: 0;
+        font-style: italic;
+        color: gray;
+    }
+
+    .input:focus {
+        border: 1px solid var(--bg-light-alt)
     }
 </style>
