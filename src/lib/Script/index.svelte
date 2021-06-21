@@ -41,7 +41,7 @@
     {#if loaded}
         <p class="script-light">{scriptText}</p>
     {:else}
-        <p class="script-light">Waiting for input... (Not working? Hit '<input type="submit" formmethod="post" class="button" value="Generate" form="serverForm">')</p>
+        <p class="script-light">Waiting for input... (Not working? Hit <input type="submit" formmethod="post" class="button" value="generate" form="serverForm">.)</p>
     {/if}
 </div>
 
@@ -64,8 +64,11 @@
 
     .button {
         font-size: 1em;
+        margin: 0;
+        padding: 0;
         font-family: 'Roboto Mono', monospace;
-        padding: 0.1em;
+        font-weight: 600;
+        background-color: transparent;
         border: none;
     }
 </style>
