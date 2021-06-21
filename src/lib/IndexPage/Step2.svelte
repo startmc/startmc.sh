@@ -8,13 +8,17 @@
     function handleKeydown(event) {
         console.log(event)
     }
+
+    function values() {
+
+    }
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
 
 <StepCard title="💾 Generate your start command">
     <Script />
-    <p class="subtext">These descriptions only intend to provide a surface level understanding of the flag and its effects on Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
+    <p class="subtext">These descriptions only intend to provide a quick understanding of the flag and its effects on Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
 </StepCard>
 
 <style>
@@ -23,7 +27,7 @@
     }
 
     .subtext {
-        padding-left: 20em;
-        padding-right: 20em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 </style>
