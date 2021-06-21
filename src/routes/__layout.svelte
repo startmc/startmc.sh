@@ -21,12 +21,13 @@
         flex-direction: column;
         min-height: 100vh;
         align-items: center;
+        justify-content: center;
     }
 
     .layout-content {
         width: 60vw;
-        margin-top: 1em;
         padding: 1em;
+        margin: 1em;
         flex: 1;
     }
 
