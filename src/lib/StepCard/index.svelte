@@ -20,7 +20,6 @@
         background-color: var(--bg-light-alt);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
         position: relative;
-        margin-top: 2em;
         margin-bottom: 2em;
     }
 
