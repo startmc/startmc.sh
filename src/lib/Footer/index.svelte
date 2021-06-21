@@ -30,6 +30,7 @@
         flex-direction: row;
         justify-content: center;
         width: 100%;
+        padding: 0;
     }
 
     .list-text {
