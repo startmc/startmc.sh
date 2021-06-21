@@ -34,7 +34,7 @@
     {#if loaded}
         <p>{scriptText}</p>
     {:else}
-        <p class="script-light">Waiting for input... (Not working? Hit '<input type="submit" class="button" value="Generate" form="serverForm">')</p>
+        <p class="script-light">Waiting for input... (Not working? Hit '<input type="submit" formmethod="post" class="button" value="Generate" form="serverForm">')</p>
     {/if}
 </div>
 

@@ -3,9 +3,9 @@
 export function getSession(request) {
     return {
         server: {
-            filename: request.query.get("filename") || "",
-            ram: request.query.get("ram") || "",
-            pterodactyl: request.query.get("pterodactyl") === "on"
+            filename: request.body?.get("filename") || "",
+            ram: request.body?.get("ram") || "",
+            pterodactyl: request.body?.get("pterodactyl") === "on"
         }
     }
 }
