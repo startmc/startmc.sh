@@ -34,7 +34,7 @@
 
     const flagText = Object.keys(flags).join(' ')
 
-    $: scriptText = `${javaPath} -jar ${filename} -Xmx${ramXmx} -Xms${ramXms} ${flagText}`
+    $: scriptText = `${javaPath} -jar ${filename} -Xmx${ramXmx} -Xms${ramXms} ${flagText} --nogui`
 </script>
 
 <div class="script-container">
