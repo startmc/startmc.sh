@@ -2,7 +2,9 @@
     <div class="footer-layout">
         <ul class="list">
             <li class="list-text"><a href="https://tadhg.sh/">aber</a> 🤝 <a href="https://kaden.sh">blue</a></li>
+            <li class="list-spacer"><hr /></li>
             <li class="list-text"><a href="https://github.com/startmc/startmc.sh">⭐ on github</a></li>
+            <li class="list-spacer"><hr /></li>
             <li class="list-text"><a href="https://chat.ksc.sh/">💬 on discord</a></li>
         </ul>
     </div>
@@ -33,6 +35,11 @@
         padding: 0;
     }
 
+    .list-spacer {
+        width: 100%;
+        display: none;
+    }
+
     .list-text {
         list-style: none;
         color: var(--text-light);
@@ -42,5 +49,25 @@
         content: '\ffed';
         margin-left: 1em;
         margin-right: 1em;
+    }
+
+    @media screen and (max-width: 640px) {
+        .list {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-text {
+        }
+
+        .list-text + .list-text:before {
+            content: none;
+            margin: 0;
+        }
+
+        .list-spacer {
+            display: block;
+        }
     }
 </style>
