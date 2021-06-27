@@ -221,6 +221,15 @@ function regenCode() {
     return;
   }
 
+  if (isPteroUsed) {
+    if (ramSuffix == 'm' || ramSuffix == 'M') {
+      ram = ramValue - 1500 + ramSuffix;
+    } else {
+      ramSuffix = 'M'
+      ram = ((ramValue * 1000) - 1500) + ramSuffix;
+    }
+  }
+
   waitingForCode = false;
   scriptElement.innerHTML = ""
 
