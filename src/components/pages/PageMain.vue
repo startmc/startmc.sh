@@ -222,8 +222,8 @@ function regenCode() {
   }
 
   if (isPteroUsed) {
-    if (ramValue <= '2' || ramValue <= '1500') {
-      return;
+    if ((ramValue <= '2' && ramSuffix.match(/([Gg])$/)) || ramValue <= '2000' &&ramSuffix.match(/([Mm])$/)) {
+      ram;
     } else {
       if (ramSuffix == 'm' || ramSuffix == 'M') {
         ram = ramValue - 1500 + ramSuffix;
