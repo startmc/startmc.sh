@@ -101,28 +101,28 @@ const flags = {
         },
         description: "A modified version of Aikar's flags that will work better on servers running with 12GB or more of memory. Find out more about Aikar's flags here: https://mcflags.emc.gs/."
     },
-    "krusic22": {
-        name: "Krusic22's flags",
-        template: {
-            "-server": "",
-            "-XX:+IgnoreUnrecognizedVMOptions": "",
-            "-XX:+UnlockExperimentalVMOptions": "",
-            "-XX:+UnlockDiagnosticVMOptions": "",
-            "-XX:+UseGCOverheadLimit": "",
-            "-XX:+ParallelRefProcEnabled": "",
-            "-XX:-OmitStackTraceInFastThrow": "",
-            "-XX:+ShowCodeDetailsInExceptionMessages": "",
-            "-XX:+UseCompressedOops": "",
-            "-XX:+PerfDisableSharedMem": "",
-            "-XX:MaxGCPauseMillis=200": "",
-            "-XX:-ZUncommit": "",
-            "-XX:ZUncommitDelay=5": "",
-            "-XX:SoftMaxHeapSize=4G": "",
-            "-XX:+ZCollectionInterval=5": "",
-            "-XX:ZAllocationSpikeTolerance=2.0": "",
-        },
-        description: "Something something about krusic zgc pog pog pog"
-    }
+    // "krusic22": {
+    //     name: "Krusic22's flags",
+    //     template: {
+    //         "-server": "",
+    //         "-XX:+IgnoreUnrecognizedVMOptions": "",
+    //         "-XX:+UnlockExperimentalVMOptions": "",
+    //         "-XX:+UnlockDiagnosticVMOptions": "",
+    //         "-XX:+UseGCOverheadLimit": "",
+    //         "-XX:+ParallelRefProcEnabled": "",
+    //         "-XX:-OmitStackTraceInFastThrow": "",
+    //         "-XX:+ShowCodeDetailsInExceptionMessages": "",
+    //         "-XX:+UseCompressedOops": "",
+    //         "-XX:+PerfDisableSharedMem": "",
+    //         "-XX:MaxGCPauseMillis=200": "",
+    //         "-XX:-ZUncommit": "",
+    //         "-XX:ZUncommitDelay=5": "",
+    //         "-XX:SoftMaxHeapSize=4G": "",
+    //         "-XX:+ZCollectionInterval=5": "",
+    //         "-XX:ZAllocationSpikeTolerance=2.0": "",
+    //     },
+    //     description: "Something something about krusic zgc pog pog pog"
+    // }
 }
 
 export default {types, flags}
