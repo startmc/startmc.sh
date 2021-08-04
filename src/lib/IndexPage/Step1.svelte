@@ -39,19 +39,6 @@
             <h3 class="column-title">Script settings</h3>
             <div class="form-element">
                 <div class="form-element-row option-container">
-                    <label for="os">Operating System</label>
-                    <select class="option" id="os" name="os">
-                        <option value="linux">Linux</option>
-                        <option value="windows">Windows</option>
-                    </select>
-                </div>
-                <div class="form-element-row">
-                    <p class="subtext">The operating system of the computer running your server. Not sure? Choose
-                        '<strong>Linux</strong>'.</p>
-                </div>
-            </div>
-            <div class="form-element">
-                <div class="form-element-row option-container">
                     <label for="type">Script type</label>
                     <select class="option" id="type" name="type" bind:value={type}>
                         {#each Object.keys(scripts.types) as scriptType}
@@ -60,7 +47,7 @@
                     </select>
                 </div>
                 <div class="form-element-row">
-                    <p class="subtext">{scripts.types[type].description}</p>
+                    <p class="subtext"><b>Make sure you select the correct option for your operating system.</b><br>{scripts.types[type].description}</p>
                 </div>
             </div>
             <div class="form-element">
@@ -116,6 +103,7 @@
     .form-element {
         display: flex;
         flex-direction: column;
+        padding-bottom: 1.2em;
     }
 
     .form-element-row {
@@ -126,7 +114,7 @@
     }
 
     .option-container {
-        padding-bottom: 0.4em;
+        padding-bottom: 0.6em;
         border-bottom: solid #b6b6b6 1px;
     }
 
@@ -141,8 +129,7 @@
         /*font-style: italic;*/
         font-weight: normal;
         padding: 0;
-        margin: 0;
-        margin-bottom: 0.5em;
+        margin: 0 0 0.5em;
     }
 
     label {

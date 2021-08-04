@@ -11,8 +11,7 @@ const types = {
     basic: {
         name: "Basic",
         description: "A script that simply starts the server when ran.",
-        template: `
-#!/bin/bash
+        template: `#!/bin/bash
 
 JAVA=@java@
 JAR=@filename@
@@ -20,14 +19,23 @@ RAM=@ram@
 FLAGS=@flags@
 
 echo "Starting server..."
-java -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui
-`
+\${JAR} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui`
+    },
+    basicWindows: {
+        name: "Basic (Windows)",
+        description: "A script that simply starts the server when ran. Designed to run on Windows.",
+        template: `set JAVA=@java@
+set JAR=@filename@
+set RAM=@ram@
+set FLAGS=@flags@
+
+echo "Starting server..."
+%JAR% -jar %JAR% -Xmx%RAM% -Xms%RAM% %FLAGS% --nogui`
     },
     autorestart: {
         name: "Autorestart",
-        description: "A script that will automatically restart the server when it exits..",
-        template: `
-#!/bin/bash
+        description: "A script that will automatically restart the server when it exits.",
+        template: `#!/bin/bash
 
 JAVA=@java@
 JAR=@filename@
@@ -35,8 +43,7 @@ RAM=@ram@
 FLAGS=@flags@
 
 echo "Starting server..."
-java -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} @flags@ --nogui
-`
+\${JAVA} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui`
     }
 
 }

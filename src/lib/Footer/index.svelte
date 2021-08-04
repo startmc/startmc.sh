@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer-layout">
         <ul class="list">
-            <li class="list-text"><a href="https://tadhg.sh/">aber</a> 🤝 <a href="https://kaden.sh">blue</a></li>
+            <li class="list-text"><a href="https://kaden.sh">by bluely</a></li>
             <li class="list-text"><a href="https://github.com/startmc/startmc.sh">⭐ on github</a></li>
             <li class="list-text"><a href="https://chat.ksc.sh/">💬 on discord</a></li>
         </ul>

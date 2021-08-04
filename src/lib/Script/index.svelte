@@ -1,8 +1,8 @@
 <script>
     import {Highlight} from "svelte-highlight";
-    import bash from "svelte-highlight/src/languages/bash";
     import scripts from '../scripts'
-
+    import bash from "svelte-highlight/src/languages/bash";
+    import github from "svelte-highlight/src/styles/github";
     /**
      * If this is true, the component will show the script.
      * If this is false, the component will display the waiting for input text.
@@ -33,8 +33,6 @@
 
     export let scriptType;
 
-    export let os;
-
     $: flagText = `${Object.keys(scripts.flags[flagType].template).join(' ')} ${pterodactyl ? "-XX:+AlwaysPreTouch" : ""}`
     //
     // $: scriptText = `${javaPath} -jar ${filename} -Xmx${ram} -Xms${ram} ${flagText} --nogui`
@@ -47,13 +45,13 @@
 </script>
 
 <svelte:head>
-    {@html bash}
+    {@html github}
 </svelte:head>
 
 <div class="script-container">
     {#if loaded}
         <p class="script-light">
-            <Highlight code={scriptText} class="script-light"/>
+            <Highlight language={bash} code={scriptText} class="script-light"/>
         </p>
     {:else}
         <p class="script-light">Waiting for input... (Not working? Hit <input type="submit" formmethod="post"
@@ -85,6 +83,8 @@
 
     :global(pre) {
         line-height: 1.35em !important;
+        padding: 0;
+        margin: 0;
         white-space: pre-wrap; /* css-3 */
     }
 

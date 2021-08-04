@@ -29,11 +29,10 @@
 
 <StepCard title="💾 Generate">
     <ScriptView bind:filename bind:ram bind:pterodactyl bind:loaded bind:scriptType bind:flagType bind:os />
-    <p></p>
-    {#if loaded}
-        <p>These descriptions only intend to provide a quick understanding of the flag and its effects on
-            Minecraft. For more information on specific scripts, please refer to your JVM's documentation.</p>
-    {/if}
+    <!--{#if loaded}-->
+    <!--    <p>These descriptions only intend to provide a quick understanding of the flag and its effects on-->
+    <!--        Minecraft. For more information on specific scripts, please refer to your JVM's documentation.</p>-->
+    <!--{/if}-->
 </StepCard>
 
 <style>
