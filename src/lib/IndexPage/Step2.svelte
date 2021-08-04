@@ -34,10 +34,3 @@
     <!--        Minecraft. For more information on specific scripts, please refer to your JVM's documentation.</p>-->
     <!--{/if}-->
 </StepCard>
-
-<style>
-    .subtext {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-</style>
