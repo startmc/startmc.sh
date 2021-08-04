@@ -222,11 +222,15 @@ function regenCode() {
   }
 
   if (isPteroUsed) {
-    if (ramSuffix == 'm' || ramSuffix == 'M') {
-      ram = ramValue - 1500 + ramSuffix;
+    if ((ramValue <= '2' && ramSuffix.match(/([Gg])$/)) || ramValue <= '2000' &&ramSuffix.match(/([Mm])$/)) {
+      ram;
     } else {
-      ramSuffix = 'M'
-      ram = ((ramValue * 1000) - 1500) + ramSuffix;
+      if (ramSuffix == 'm' || ramSuffix == 'M') {
+        ram = ramValue - 1500 + ramSuffix;
+      } else {
+        ramSuffix = 'M';
+        ram = ((ramValue * 1000) - 1500) + ramSuffix;
+      }
     }
   }
 
