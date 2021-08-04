@@ -25,7 +25,7 @@
     }
 </script>
 
-<svelte:window on:mousedown={updateValues} on:keyup={updateValues} on:load={updateValues}/>
+<svelte:window on:mousedown={updateValues} on:keydown={updateValues} on:keyup={updateValues} on:load={updateValues}/>
 
 <StepCard title="💾 Generate">
     <ScriptView bind:filename bind:ram bind:pterodactyl bind:loaded bind:scriptType bind:flagType bind:os />
