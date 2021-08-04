@@ -8,13 +8,18 @@
 
     let ram = $session.server.ram;
     let pterodactyl = $session.server.pterodactyl;
+    let flagType = $session.server.flagType;
+    let scriptType = $session.server.scriptType;
+    let os;
     let loaded = !!(filename && ram);
 
     function updateValues(event) {
-
         pterodactyl = document.getElementById("pterodactyl").checked
         ram = document.getElementById("ram").value
         filename = document.getElementById("filename").value
+        flagType = document.getElementById("flags").value
+        scriptType = document.getElementById("type").value
+        console.log(pterodactyl, ram, filename)
         loaded = !!(filename && ram);
 
     }
@@ -22,12 +27,12 @@
 
 <svelte:window on:keyup={updateValues} on:load={updateValues}/>
 
-<StepCard title="💾 Generate your start command">
-    <ScriptView bind:filename bind:ram bind:pterodactyl bind:loaded/>
+<StepCard title="💾 Generate">
+    <ScriptView bind:filename bind:ram bind:pterodactyl bind:loaded bind:scriptType bind:flagType bind:os />
     <p></p>
     {#if loaded}
         <p>These descriptions only intend to provide a quick understanding of the flag and its effects on
-            Minecraft. For more information on specific flags, please refer to your JVM's documentation.</p>
+            Minecraft. For more information on specific scripts, please refer to your JVM's documentation.</p>
     {/if}
 </StepCard>
 

@@ -1,29 +1,95 @@
 <script>
     import StepCard from '$lib/StepCard/index.svelte'
+    import scripts from '../scripts'
+
+    let filename;
+    let ram;
+    let os;
+    let type = "basic";
+    let flags = "aikar";
+    let pterodactyl;
 </script>
 
-<StepCard title="📝 Enter your server's details">
-        <form class="form" id="serverForm" autocomplete="off">
-            <div class="form-column">
-                <div class="form-section">
-                    <label class="label" for="filename"><strong>.jar file</strong></label>
-                    <input name="filename" id="filename" class="input" type="text" placeholder="server.jar">
+<StepCard title="📝 Configure">
+    <form class="form" id="serverForm" autocomplete="off" method="POST">
+        <div class="form-column">
+            <h3 class="column-title">Server details</h3>
+            <div class="form-element">
+                <div class="form-element-row option-container">
+                    <label for="filename">Server filename</label>
+                    <input name="filename" class="option" id="filename" type="text" placeholder="server.jar">
                 </div>
-                <div class="form-section">
-                    <label class="label" for="ram"><strong>RAM allocation</strong></label>
-                    <input name="ram" id="ram" class="input" type="text" placeholder="10G, 2048M">
-                </div>
-            </div>
-            <div class="form-column">
-                <div class="form-section">
-                    <div class="checkbox-container">
-                        <input name="pterodactyl" id="pterodactyl" type="checkbox">
-                        <label class="label" for="pterodactyl"><strong>Pterodactyl Panel</strong></label>
-                    </div>
-                    <p class="subtext">Improves compatibility with Pterodactyl when checked.</p>
+                <div class="form-element-row">
+                    <p class="subtext">The name of your server's .jar file.</p>
                 </div>
             </div>
-        </form>
+
+            <div class="form-element">
+                <div class="form-element-row option-container">
+                    <label for="ram">RAM amount</label>
+                    <input class="option" name="ram" id="ram" type="text" placeholder="1500M">
+                </div>
+                <div class="form-element-row">
+                    <p class="subtext">How much RAM to allocate to the server (Measured in megabytes, should end in
+                        '<strong>M</strong>').</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <h3 class="column-title">Script settings</h3>
+            <div class="form-element">
+                <div class="form-element-row option-container">
+                    <label for="os">Operating System</label>
+                    <select class="option" id="os" name="os">
+                        <option value="linux">Linux</option>
+                        <option value="windows">Windows</option>
+                    </select>
+                </div>
+                <div class="form-element-row">
+                    <p class="subtext">The operating system of the computer running your server. Not sure? Choose
+                        '<strong>Linux</strong>'.</p>
+                </div>
+            </div>
+            <div class="form-element">
+                <div class="form-element-row option-container">
+                    <label for="type">Script type</label>
+                    <select class="option" id="type" name="type" bind:value={type}>
+                        {#each Object.keys(scripts.types) as scriptType}
+                            <option value="{scriptType}">{scripts.types[scriptType].name}</option>
+                        {/each}
+                    </select>
+                </div>
+                <div class="form-element-row">
+                    <p class="subtext">{scripts.types[type].description}</p>
+                </div>
+            </div>
+            <div class="form-element">
+                <div class="form-element-row option-container">
+                    <label for="type">Flag type</label>
+                    <select class="option" id="flags" name="flags" bind:value={flags}>
+                        {#each Object.keys(scripts.flags) as flagType}
+                            <option value="{flagType}">{scripts.flags[flagType].name}</option>
+                        {/each}
+                    </select>
+                </div>
+                <div class="form-element-row">
+                    <p class="subtext">{scripts.flags[flags].description}</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <h3 class="column-title">Optional values</h3>
+            <div class="form-element">
+                <div class="form-element-row option-container">
+                    <label for="pterodactyl">Pterodactyl Panel</label>
+                    <input id="pterodactyl" name="pterodactyl" type="checkbox" value="true">
+                </div>
+                <div class="form-element-row">
+                    <p class="subtext">Improves compatibility with the Pterodactyl panel.</p>
+                </div>
+            </div>
+        </div>
+    </form>
 </StepCard>
 
 <style>
@@ -31,56 +97,55 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 0.2em;
+        justify-content: space-evenly;
     }
 
     .form-column {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        width: 20em;
+        flex: 1;
+        max-width: 25em;
+        margin-left: 1em;
+        margin-right: 1em;
     }
 
-    .form-section {
+    .option {
+        min-width: 10em;
+    }
+
+    .form-element {
         display: flex;
         flex-direction: column;
-        margin-inline: 1em;
-        margin-bottom: 1em;
     }
 
-    .label {
-        font-size: 1.25rem;
-    }
-
-    .input {
-        margin: 0.3em 0;
-        border: 1px solid rgb(170, 170, 170);
-        border-radius: 0.2em;
-        padding: 0.3em;
-        font-size: 1em;
-    }
-
-    .checkbox-container {
+    .form-element-row {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         flex: 1;
-        justify-content: space-evenly;
     }
 
-    .checkbox-container input {
-        border: 1px solid rgb(170, 170, 170);
-        border-radius: 0.2em;
-        width: 1.25em;
-        height: 1.25em;
-        font-size: 1em;
-    }
-
-    .input:focus {
-        border: 1px solid var(--bg-light-alt)
+    .option-container {
+        padding-bottom: 0.4em;
+        border-bottom: solid #b6b6b6 1px;
     }
 
     .subtext {
-        text-align: center;
+        margin: 0;
+        padding: 0.2em 0 1em 0;
+        font-size: 0.9rem;
+    }
+
+    .column-title {
+        font-size: 1.4em;
+        /*font-style: italic;*/
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 0.5em;
+    }
+
+    label {
+        font-weight: bold;
     }
 </style>
