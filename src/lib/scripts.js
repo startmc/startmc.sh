@@ -19,7 +19,7 @@ RAM=@ram@
 FLAGS=@flags@
 
 echo "Starting server..."
-\${JAR} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui`
+\${JAVA} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui`
     },
     basicWindows: {
         name: "Basic (Windows)",
