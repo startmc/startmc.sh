@@ -29,8 +29,8 @@ set JAR=@filename@
 set RAM=@ram@
 set FLAGS=@flags@
 
-echo "Starting server..."
-%JAR% -jar %JAR% -Xmx%RAM% -Xms%RAM% %FLAGS% --nogui`
+echo Starting server...
+%JAVA% -jar %JAR% -Xmx%RAM% -Xms%RAM% %FLAGS% --nogui`
     },
     autorestart: {
         name: "Autorestart",
