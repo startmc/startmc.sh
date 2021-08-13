@@ -7,7 +7,6 @@
     let os;
     let type = "basic";
     let flags = "aikar";
-    let pterodactyl;
 </script>
 
 <StepCard title="📝 Configure">
@@ -65,14 +64,13 @@
             </div>
         </div>
         <div class="form-column">
-            <h3 class="column-title">Optional values</h3>
+            <h3 class="column-title">Extras</h3>
             <div class="form-element">
                 <div class="form-element-row option-container">
-                    <label for="pterodactyl">Pterodactyl Panel</label>
-                    <input id="pterodactyl" name="pterodactyl" type="checkbox" value="true">
+                    <p style="margin: 0;"><b>Note for Pterodactyl Panel users</b></p>
                 </div>
                 <div class="form-element-row">
-                    <p class="subtext">Improves compatibility with the Pterodactyl panel.</p>
+                    <p class="subtext">If you run into "out of memory" errors, please ensure your script's RAM is set to a value lower than the amount of RAM allocated to the Pterodactyl server. Alternatively, you can disable the memory limit on your server by setting the RAM value on Pterodactyl to 0, which will allow the JVM to do its job.</p>
                 </div>
             </div>
         </div>

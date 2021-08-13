@@ -24,16 +24,11 @@
      */
     export let filename;
 
-    /**
-     * Is the script for use with Pterodactyl?
-     */
-    export let pterodactyl;
-
     export let flagType;
 
     export let scriptType;
 
-    $: flagText = `${Object.keys(scripts.flags[flagType].template).join(' ')} ${pterodactyl ? "-XX:+AlwaysPreTouch" : ""}`
+    $: flagText = `${Object.keys(scripts.flags[flagType].template).join(' ')}`
     //
     // $: scriptText = `${javaPath} -jar ${filename} -Xmx${ram} -Xms${ram} ${flagText} --nogui`
 
