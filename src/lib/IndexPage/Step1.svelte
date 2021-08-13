@@ -70,7 +70,7 @@
                     <p style="margin: 0;"><b>Note for Pterodactyl Panel users</b></p>
                 </div>
                 <div class="form-element-row">
-                    <p class="subtext">If you run into "out of memory" errors, please ensure your script's RAM is set to a value lower than the amount of RAM allocated to the Pterodactyl server. Alternatively, you can disable the memory limit on your server by setting the RAM value on Pterodactyl to 0, which will allow the JVM to do its job.</p>
+                    <p class="subtext">If you run into "out of memory" errors, please ensure your script's RAM is set to a value lower than the amount of RAM allocated to the Pterodactyl server (around 1-2GB less). Alternatively, you can disable the memory limit on your server by setting the RAM value on Pterodactyl to 0, which will allow the JVM to do its job.</p>
                 </div>
             </div>
         </div>
