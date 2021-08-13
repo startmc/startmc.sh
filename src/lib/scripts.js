@@ -13,10 +13,10 @@ const types = {
         description: "A script that simply starts the server when ran.",
         template: `#!/bin/bash
 
-JAVA=@java@
-JAR=@filename@
-RAM=@ram@
-FLAGS=@flags@
+JAVA="@java@"
+JAR="@filename@"
+RAM="@ram@"
+FLAGS="@flags@"
 
 echo "Starting server..."
 \${JAVA} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui`
@@ -37,13 +37,19 @@ echo Starting server...
         description: "A script that will automatically restart the server when it exits.",
         template: `#!/bin/bash
 
-JAVA=@java@
-JAR=@filename@
-RAM=@ram@
-FLAGS=@flags@
+JAVA="@java@"
+JAR="@filename@"
+RAM="@ram@"
+FLAGS="@flags@"
 
-echo "Starting server..."
-\${JAVA} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui`
+while [ true ]; do
+    echo "Starting server..."
+    \${JAVA} -jar \${JAR} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} --nogui
+    for i in {3..1}; do
+        printf 'Server restarting in %s... (press CTRL-C to exit)\\n' "\${i}"
+        sleep 1
+    done
+done`
     }
 
 }
