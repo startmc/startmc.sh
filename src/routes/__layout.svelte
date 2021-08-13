@@ -3,10 +3,13 @@
 
     import Header from '$lib/Header/index.svelte'
     import Footer from '$lib/Footer/index.svelte'
+    import Banner from '$lib/Banner/index.svelte'
 </script>
 
 <div class="layout">
     <Header />
+
+    <Banner html="<p>Introducing <b>startmc.sh v2</b> - enjoy the new script types and updated design! <a target='_blank' href='https://github.com/startmc/startmc.sh/pull/9'>Read more here</a>."/>
 
     <div class="layout-content">
         <slot></slot>
