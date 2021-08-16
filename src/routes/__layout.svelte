@@ -9,7 +9,7 @@
 <div class="layout">
     <Header />
 
-    <Banner html="<p>Introducing <b>startmc.sh v2</b> - enjoy the new script types and updated design! <a target='_blank' href='https://github.com/startmc/startmc.sh/pull/9'>Read more here</a>."/>
+<!--    <Banner html="<p>Introducing <b>startmc.sh v2</b> - enjoy the new script types and updated design! <a target='_blank' href='https://github.com/startmc/startmc.sh/pull/9'>Read more here</a>."/>-->
 
     <div class="layout-content">
         <slot></slot>
