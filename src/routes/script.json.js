@@ -44,7 +44,7 @@ export const get = async (req) => {
 
     const flagText = `${Object.keys(scripts.flags[flags].template).join(' ')}`
 
-    const scriptText = scripts.types[type].template
+    const script = scripts.types[type].template
         .replace("@java@", java)
         .replace("@filename@", filename)
         .replace("@ram@", ram)
@@ -53,9 +53,7 @@ export const get = async (req) => {
 
     return {
         body: {
-            script: {
-                scriptText
-            }
+            script
         }
     }
 }
