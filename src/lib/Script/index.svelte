@@ -32,11 +32,24 @@
     //
     // $: scriptText = `${javaPath} -jar ${filename} -Xmx${ram} -Xms${ram} ${flagText} --nogui`
 
+    //function to automatically apply 12gb+ flags
+    function autoAikar12GB(ram) {
+            if (ram != null) {
+                ram = ram.replace("M", "");
+                if (ram >=12000) {
+                    ram = ram+"m";
+                    return`${Object.keys(scripts.flags["aikar12gb"].template).join(' ')}`
+                }
+            }
+            return `${Object.keys(scripts.flags["aikar"].template).join(' ')}`
+        }
+
     $: scriptText = scripts.types[scriptType].template
         .replace("@java@", javaPath)
         .replace("@filename@", filename)
         .replace("@ram@", ram)
-        .replace("@flags@", flagText)
+        .replace("@flags@", autoAikar12GB(ram))
+
 </script>
 
 <svelte:head>
