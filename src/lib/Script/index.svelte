@@ -33,10 +33,10 @@
     // $: scriptText = `${javaPath} -jar ${filename} -Xmx${ram} -Xms${ram} ${flagText} --nogui`
 
     $: scriptText = scripts.types[scriptType].template
-        .replace("@java@", javaPath)
-        .replace("@filename@", filename)
-        .replace("@ram@", ram)
-        .replace("@flags@", flagText)
+        .replaceAll("@java@", javaPath)
+        .replaceAll("@filename@", filename)
+        .replaceAll("@ram@", ram)
+        .replaceAll("@flags@", flagText)
 </script>
 
 <svelte:head>
