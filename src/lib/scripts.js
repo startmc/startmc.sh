@@ -9,8 +9,8 @@
 //
 const types = {
     basic: {
-        name: "Basic",
-        description: "A script that simply starts the server when ran.",
+        name: "Basic (Shell script)",
+        description: "A basic startup script. Intended for use with shells such as Bash. Choose this if you're running Linux.",
         template: `#!/bin/bash
 
 JAVA="@java@"
@@ -23,7 +23,7 @@ echo "Starting server..."
     },
     basicWindows: {
         name: "Basic (Windows)",
-        description: "A script that simply starts the server when ran. Designed to run on Windows.",
+        description: "A script that starts the server when ran. Choose this if you're running Windows.",
         template: `set JAVA=@java@
 set JAR=@filename@
 set RAM=@ram@
@@ -33,8 +33,8 @@ echo Starting server...
 %JAVA% -Xmx%RAM% -Xms%RAM% %FLAGS% -jar %JAR% --nogui`
     },
     autorestart: {
-        name: "Autorestart",
-        description: "A script that will automatically restart the server when it exits.",
+        name: "Autorestart (Shell script)",
+        description: "A script that will automatically restart the server when it exits. Intended for use with shells such as Bash. Choose this if you're running Linux.",
         template: `#!/bin/bash
 
 JAVA="@java@"
