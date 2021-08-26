@@ -18,7 +18,6 @@
         flex-direction: column;
         width: 100%;
         background-color: var(--bg-light-alt);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
         position: relative;
         margin-bottom: 2em;
         border-radius: 0.3em;

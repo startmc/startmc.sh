@@ -58,12 +58,15 @@
 <style>
     .script-container {
         background-color: white;
+        border-radius: 0.25em;
+        border: 1px #b0b0b0 solid;
     }
 
     p {
         font-family: 'Roboto Mono', monospace;
         font-weight: 400;
         padding: 0.4em;
+        margin: 0;
     }
 
     .script-light {
