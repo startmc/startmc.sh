@@ -50,6 +50,11 @@ while [ true ]; do
         sleep 1
     done
 done`
+    },
+    simple: {
+        name: "One-liner",
+        description: "A one-liner script.",
+        template: `\${JAVA} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} -jar \${JAR}  --nogui`
     }
 
 }
