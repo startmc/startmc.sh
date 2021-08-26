@@ -54,7 +54,7 @@ done`
     simple: {
         name: "One-liner",
         description: "A one-liner script.",
-        template: `\${JAVA} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} -jar \${JAR}  --nogui`
+        template: `@java@ -Xmx@ram@ -Xms@ram@ @flags@ -jar @filename@  --nogui`
     }
 
 }
