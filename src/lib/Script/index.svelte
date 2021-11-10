@@ -37,6 +37,8 @@
         .replaceAll("@filename@", filename)
         .replaceAll("@ram@", ram)
         .replaceAll("@flags@", flagText)
+
+    $: link = scripts.download(scripts.types[scriptType].filename, scriptText);
 </script>
 
 <svelte:head>
@@ -55,11 +57,18 @@
     {/if}
 </div>
 
+{#if loaded}
+    <span class="download-button">
+        {@html link}
+    </span>
+{/if}
+
 <style>
     .script-container {
         background-color: white;
         border-radius: 0.25em;
         border: 1px #b0b0b0 solid;
+        margin-bottom: 1em;
     }
 
     p {

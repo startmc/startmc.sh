@@ -11,6 +11,7 @@ const types = {
     basic: {
         name: "Basic (Shell script)",
         description: "A basic startup script. Intended for use with shells such as Bash. Choose this if you're running Linux.",
+        filename: "startmc.sh",
         template: `#!/bin/bash
 
 JAVA="@java@"
@@ -24,6 +25,7 @@ echo "Starting server..."
     basicWindows: {
         name: "Basic (Windows)",
         description: "A script that starts the server when ran. Choose this if you're running Windows.",
+        filename: "startmc.bat",
         template: `set JAVA=@java@
 set JAR=@filename@
 set RAM=@ram@
@@ -35,6 +37,7 @@ echo Starting server...
     autorestart: {
         name: "Autorestart (Shell script)",
         description: "A script that will automatically restart the server when it exits. Intended for use with shells such as Bash. Choose this if you're running Linux.",
+        filename: "startmc.sh",
         template: `#!/bin/bash
 
 JAVA="@java@"
@@ -54,6 +57,7 @@ done`
     simple: {
         name: "One-liner",
         description: "A one-liner script.",
+        filename: "startmc.sh",
         template: `@java@ -Xmx@ram@ -Xms@ram@ @flags@ -jar @filename@  --nogui`
     }
 
@@ -134,6 +138,15 @@ const flags = {
     //     },
     //     description: "Something something about krusic zgc pog pog pog"
     // }
+},
+
+download = (filename, text) => {
+    const href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
+    return `<button><a href="${href}" download="${filename}" style="color: #242424">📋 Download</a></button>`;
 }
 
-export default {types, flags}
+export default {
+    types,
+    flags,
+    download
+}
