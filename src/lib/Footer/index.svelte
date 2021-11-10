@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer-layout">
         <ul class="list">
-            <li class="list-text"><a href="https://kaden.sh">by bluely</a></li>
+            <li class="list-text">by <a href="https://kaden.sh" target="_blank">bluely</a> & <a href="https://tadhg.sh" target="_blank">aber</a></li>
             <li class="list-text"><a href="https://github.com/startmc/startmc.sh">⭐ on github</a></li>
             <li class="list-text"><a href="https://chat.ksc.sh/">💬 on discord</a></li>
         </ul>
@@ -35,7 +35,8 @@
 
     .list-text {
         list-style: none;
-        color: var(--text-light);
+        font-weight: bold;
+        color: var(--text-link);
     }
 
     .list-text + .list-text:before {
