@@ -26,7 +26,8 @@ echo "Starting server..."
         name: "Basic (Windows)",
         description: "A script that starts the server when ran. Choose this if you're running Windows.",
         filename: "startmc.bat",
-        template: `set JAVA=@java@
+        template: `@echo off
+set JAVA=@java@
 set JAR=@filename@
 set RAM=@ram@
 set FLAGS=@flags@
