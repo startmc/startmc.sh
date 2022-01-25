@@ -20,7 +20,7 @@ RAM="@ram@"
 FLAGS="@flags@"
 
 echo "Starting server..."
-\${JAVA} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} -jar \${JAR} --nogui`
+\${JAVA} -Xmx\${RAM} -Xms\${RAM} / 1000 \${FLAGS} -jar \${JAR} --nogui`
     },
     basicWindows: {
         name: "Basic (Windows)",
@@ -33,7 +33,7 @@ set RAM=@ram@
 set FLAGS=@flags@
 
 echo Starting server...
-%JAVA% -Xmx%RAM% -Xms%RAM% %FLAGS% -jar %JAR% --nogui`
+%JAVA% -Xmx%RAM% -Xms%RAM%/1000 %FLAGS% -jar %JAR% --nogui`
     },
     autorestart: {
         name: "Autorestart (Shell script)",
@@ -48,7 +48,7 @@ FLAGS="@flags@"
 
 while [ true ]; do
     echo "Starting server..."
-    \${JAVA} -Xmx\${RAM} -Xms\${RAM} \${FLAGS} -jar \${JAR}  --nogui
+    \${JAVA} -Xmx\${RAM} -Xms\${RAM}/1000 \${FLAGS} -jar \${JAR}  --nogui
     for i in 3 2 1; do
         printf 'Server restarting in %s... (press CTRL-C to exit)\\n' "\${i}"
         sleep 1
